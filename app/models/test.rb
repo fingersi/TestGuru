@@ -1,11 +1,11 @@
 class Test < ApplicationRecord
+  belongs_to :category
+  has_many :user_histories
+  has_many :users, through: :user_histories
+
   def self.find_by_category(category)
-    Test.joins(
-      'INNER JOIN categories ON tests.category_id = categories.id'
-    ).where(
-      'categories.title = ?', category
-    ).order(
-      'tests.title DESC'
-    )
+    Test.joins(:category)
+        .where('categories.title = ?', category)
+        .order('tests.title DESC')
   end
 end

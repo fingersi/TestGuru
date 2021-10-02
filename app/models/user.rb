@@ -1,9 +1,8 @@
 class User < ApplicationRecord
+  has_many :user_histories
+  has_many :tests, through: :user_histories
+
   def history(level)
-    Test.joins(
-      'INNER JOIN user_histories ON tests.id = user_histories.test_id'
-    ).where(
-      'user_histories.level = ? AND user_histories.user_id = ?', level, id
-    )
+    Test.joins(:users).where('tests.level = ? AND user_id = ?', level, id)
   end
 end
