@@ -9,10 +9,13 @@ class Test < ApplicationRecord
   scope :easy, -> { by_level(0..1) }
   scope :moderate, -> { by_level(2..4) }
   scope :advance, -> { by_level(4..Float::INFINITY) }
+  scope :find_by_category, ->(category) { Test.joins(:category).where('categories.title = ?', category) }
 
-  def self.find_by_category(category)
-    Test.joins(:category)
-        .where('categories.title = ?', category)
-        .order('tests.title DESC').pluck(:title)
+  validates :title, presence: true
+  validates_uniqueness_of :title, uniqueness: { scope: :level }
+  validates :level, numericality: { other_than: 0 }
+
+  def self.find_order_by_category(category)
+    Test.find_by_category(category).order('tests.title DESC').pluck(:title)
   end
 end
