@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_12_195521) do
+ActiveRecord::Schema.define(version: 2021_11_06_210119) do
 
   create_table "answers", force: :cascade do |t|
     t.string "value", null: false
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2021_10_12_195521) do
     t.integer "author_id"
     t.index ["author_id"], name: "index_tests_on_author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
+    t.index ["level"], name: "index_tests_on_level", unique: true
+    t.check_constraint "level >= 0", name: "check_level_positive"
   end
 
   create_table "user_histories", force: :cascade do |t|
@@ -58,7 +60,7 @@ ActiveRecord::Schema.define(version: 2021_10_12_195521) do
 
   create_table "users", force: :cascade do |t|
     t.string "login", null: false
-    t.string "email"
+    t.string "email", null: false
     t.boolean "admin", null: false
     t.string "password", null: false
     t.datetime "created_at", precision: 6, null: false

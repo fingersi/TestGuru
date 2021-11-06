@@ -6,6 +6,6 @@ class Answer < ApplicationRecord
   validate :validate_number_answers_in_question
 
   def validate_number_answers_in_question
-    errors.add(:question_id, 'Question has too many answers') if Question.find(question_id).answers.length > 4
+    errors.add(:question_id, 'Question has too many answers') if question.answers.length > 4
   end
 end
