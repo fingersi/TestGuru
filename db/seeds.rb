@@ -11,7 +11,7 @@ test1 = Test.find_or_create_by(title: 'Basic Math', level: 1, category_id: categ
 
 test2 = Test.find_or_create_by(title: 'Russian history.', level: 2, category_id: category2.id, author_id: admin.id)
 
-test3 = Test.find_or_create_by(title: 'Roman history.', level: 2, category_id: category2.id, author_id: admin.id)
+test3 = Test.find_or_create_by(title: 'Roman history.', level: 3, category_id: category2.id, author_id: admin.id)
 
 question1 = Question.find_or_create_by(body: 'Выберете год основания Российского государства', test_id: test2.id)
 Answer.find_or_create_by(value: '882', correct: true, question_id: question1.id)
