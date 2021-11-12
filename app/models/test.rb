@@ -11,8 +11,7 @@ class Test < ApplicationRecord
   scope :advance, -> { by_level(4..Float::INFINITY) }
   scope :find_by_category, ->(category) { Test.joins(:category).where('categories.title = ?', category) }
 
-  validates :title, presence: true
-  validates :title, uniqueness: { scope: :level }
+  validates :title, presence: true, uniqueness: { scope: :level }
   validates :level, numericality: { other_than: 0 }
 
   def self.find_order_by_category(category)
