@@ -1,0 +1,9 @@
+<h1>Question edit form.</h1>
+
+<p><%= @question.body %></p>
+
+<%= form_with model: @question do |form| %>
+  <%= form.label :query, "Body" %>
+  <%= form.text_field :query, value: @question.body  %>
+  <%= form.submit "Update" %>
+<% end %>
