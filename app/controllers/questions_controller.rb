@@ -1,19 +1,21 @@
 class QuestionsController < ApplicationController
 
+  before_action :find_test, only: %i[index]
+  before_action :find_question, except: %i[index] 
+
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_question_not_found
+
   def index
-    @questions = Test.find(params[:test_id]).questions
+    @questions = @test.questions
   end
 
   def show
-    @question = Question.find(params[:id])
   end
 
-  def edit 
-    @question = Question.find(params[:id])
+  def edit
   end
 
   def update
-    @question = Question.find(params[:id])
     @question.body = params[:question][:query]
     @question.save
     redirect_to "/questions/#{@question.id}"
@@ -25,9 +27,22 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question = Question.find(params[:id])
     @id = @question.id
     @body = @question.body
     @question.destroy
+  end
+
+  private
+
+  def find_question
+    @question = Question.find(params[:id])
+  end
+
+  def find_test
+    @test = Test.find(params[:test_id])
+  end
+
+  def rescue_question_not_found
+    render plain: 'Question was not found.'
   end
 end
