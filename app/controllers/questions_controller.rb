@@ -16,9 +16,7 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    puts "I am here"
-    @question.body = question_params[:body]
-    if @question.save
+    if @question.update(question_params)
       redirect_to @question
     else
       render plain: 'Question has not been updated. Something went wrong'
@@ -31,7 +29,6 @@ class QuestionsController < ApplicationController
   def create
     @question = @test.questions.new(question_params)
     if @question.save
-      # @question = Question.create(body: params[:body], test_id: params[:test_id].to_i)
       redirect_to @question
     else
       render plain: 'Questions has not been created'
