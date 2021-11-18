@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 
-  before_action :find_test, only: %i[index]
-  before_action :find_question, except: %i[index] 
+  before_action :find_test, only: %i[index new create]
+  before_action :find_question, except: %i[index new create]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_question_not_found
 
@@ -16,19 +16,29 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question.body = params[:question][:query]
-    @question.save
-    redirect_to "/questions/#{@question.id}"
+    puts "I am here"
+    @question.body = question_params[:body]
+    if @question.save
+      redirect_to @question
+    else
+      render plain: 'Question has not been updated. Something went wrong'
+    end
+  end
+
+  def new
   end
 
   def create
-    @question = Question.create(body: params[:body], test_id: params[:test_id].to_i)
-    redirect_to "/questions/#{@question.id}"
+    @question = @test.questions.new(question_params)
+    if @question.save
+      # @question = Question.create(body: params[:body], test_id: params[:test_id].to_i)
+      redirect_to @question
+    else
+      render plain: 'Questions has not been created'
+    end
   end
 
   def destroy
-    @id = @question.id
-    @body = @question.body
     @question.destroy
   end
 
@@ -44,5 +54,9 @@ class QuestionsController < ApplicationController
 
   def rescue_question_not_found
     render plain: 'Question was not found.'
+  end
+
+  def question_params
+    params.require(:question).permit(:body)
   end
 end
