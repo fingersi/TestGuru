@@ -19,11 +19,12 @@ class QuestionsController < ApplicationController
     if @question.update(question_params)
       redirect_to @question
     else
-      render plain: 'Question has not been updated. Something went wrong'
+      render :edit
     end
   end
 
   def new
+    @question = Question.new()
   end
 
   def create
@@ -31,7 +32,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to @question
     else
-      render plain: 'Questions has not been created'
+      render :new
     end
   end
 

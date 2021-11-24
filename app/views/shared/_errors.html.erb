@@ -1,0 +1,6 @@
+<% if resource.errors.present? %>
+<h2>Errors:</h2>
+  <% resource.errors.full_messages.each do |errors| %>
+    <li> <%= errors %> </li>
+  <% end %>
+<% end %>
