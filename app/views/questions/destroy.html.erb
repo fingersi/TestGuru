@@ -2,3 +2,5 @@
 
 
 <p>Question <%= @question.id %> with body: <%= @question.body %> has been deleted</p>
+
+<p> <%= link_to @question.test.title, test_questions_path(@question.test) %></p>

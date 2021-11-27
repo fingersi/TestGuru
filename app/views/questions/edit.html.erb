@@ -1,9 +1,5 @@
-<h1>Question edit form.</h1>
 
-<p><%= @question.body %></p>
 
-<%= form_with model: @question do |form| %>
-  <%= form.label :body, "Body" %>
-  <%= form.text_field :body, value: @question.body  %>
-  <%= form.submit "Update" %>
-<% end %>
+<%= render 'shared/errors', resource: @question%>
+
+<%= render 'form' %>
