@@ -1,0 +1,12 @@
+<h1>Show TestPassing <%= @test_passing.test.title %> </h1>
+
+<%= @test_passing.current_question.body %>
+<%= form_with url: test_passing_path(@test_passing), local: true, method: :put do |form| %>
+  <%= form.collection_check_boxes :answer_ids, @test_passing.current_question.answers, :id, :value, include_hidden: false do |b| %>
+    <p> 
+      <%= b.check_box id: "answer_ids_#(b.object.id)"%>
+      <%= b.label %>
+    </p>
+  <% end %>
+  <%= form.submit "next" %>
+<% end %>

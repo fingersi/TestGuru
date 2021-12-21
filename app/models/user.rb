@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :user_histories
-  has_many :tests, through: :user_histories
+  has_many :test_passings
+  has_many :tests, through: :test_passings
   has_many :created_test, class_name: :Test, foreign_key: :author_id
 
   validates :email, presence: true
