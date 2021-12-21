@@ -1,9 +1,13 @@
-<% mark = @test_passing.test.questions.count / @test_passing.correct_questions %>
+<% mark = 0.0 %>
+<% mark = @test_passing.correct_questions.to_f / @test_passing.test.questions.count.to_f * 100 %>
 
-<% if mark >= 0.85%>
+
+<% if mark >= 85%>
 <%  color = 'green'%>
 <% else %>
 <%  color = 'red'%>
 <% end %>
+<p> </p>
+<%= link_to 'Back', tests_path %>
 <h1><font size="6" color= <%= color%> face="serif">Test has been completed</font></h1>
-<p><font size="4">Your mark: </font><font size="4" color= <%= color%> face="serif"><%= mark * 100 %> %</font></p>
+<p><font size="4">Your mark: </font><font size="4" color= <%= color%> face="serif"><%= mark %> %</font></p>
