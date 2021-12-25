@@ -1,5 +1,4 @@
 class TestPassing < ApplicationRecord
-
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
@@ -8,6 +7,24 @@ class TestPassing < ApplicationRecord
 
   def completed?
     current_question.nil?
+  end
+
+  def mark
+    (correct_questions.to_f / test.questions.count) * 100
+  end
+
+  def current_question_number
+    self.test.questions.order(:id).where('id > ?', current_question.id).count
+  end
+
+  def total_questions
+    test.questions.count
+  end
+
+  def successfull?
+    return true if mark >= 85
+
+    false
   end
 
   def accept!(answer_ids)
