@@ -1,5 +1,5 @@
 
-<p> </p>
+<p> <%= link_to 'All_tests', tests_path %></p>
 <%= link_to 'Back', tests_path %>
 <%= result_final_text(@test_passing.successfull?) %>
 <%= result_mark(@test_passing.successfull?, @test_passing.mark) %>
