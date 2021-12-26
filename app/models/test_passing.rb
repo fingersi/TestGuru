@@ -3,7 +3,8 @@ class TestPassing < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  before_validation :before_save_set_first_question, on: :create
+  before_create :before_save_set_first_question
+  before_update :before_update_next_question
 
   def completed?
     current_question.nil?
@@ -14,7 +15,7 @@ class TestPassing < ApplicationRecord
   end
 
   def current_question_number
-    self.test.questions.order(:id).where('id > ?', current_question.id).count
+    total_questions - self.test.questions.order(:id).where('id > ?', current_question.id).count
   end
 
   def total_questions
@@ -32,7 +33,6 @@ class TestPassing < ApplicationRecord
       self.correct_questions += 1
     end
 
-    self.current_question = next_question
     save!
   end
 
@@ -50,7 +50,7 @@ class TestPassing < ApplicationRecord
     current_question.answers.correct_answers
   end
 
-  def next_question
-    test.questions.order(:id).where('id > ?', current_question.id).first
+  def before_update_next_question
+    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first
   end
 end
