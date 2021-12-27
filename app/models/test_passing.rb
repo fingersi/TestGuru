@@ -6,6 +6,8 @@ class TestPassing < ApplicationRecord
   before_create :before_save_set_first_question
   before_update :before_update_next_question
 
+  SUCCESS_LEVEL = 85
+
   def completed?
     current_question.nil?
   end
@@ -23,7 +25,7 @@ class TestPassing < ApplicationRecord
   end
 
   def successfull?
-    mark >= 85
+    mark >= SUCCESS_LEVEL
   end
 
   def accept!(answer_ids)
