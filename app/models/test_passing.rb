@@ -23,9 +23,7 @@ class TestPassing < ApplicationRecord
   end
 
   def successfull?
-    return true if mark >= 85
-
-    false
+    mark >= 85
   end
 
   def accept!(answer_ids)

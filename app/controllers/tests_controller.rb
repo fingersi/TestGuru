@@ -2,6 +2,7 @@ class TestsController < ApplicationController
   before_action :set_test, only: %i[show edit update destroy start]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_test_not_found
+  rescue_from ActiveRecord::InvalidForeignKey, with: :rescue_question_exists
 
   def index
     @tests = Test.all
@@ -28,11 +29,11 @@ class TestsController < ApplicationController
   end
 
   def create
-    @test = Test.new(convert_params(test_params))
+    @test = Test.new(test_params)
 
     respond_to do |format|
       if @test.save
-        format.html { redirect_to @test, notice: "Test was successfully created." }
+        format.html { redirect_to @test, notice: 'Test was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -42,7 +43,7 @@ class TestsController < ApplicationController
   def update
     respond_to do |format|
       if @test.update(test_params)
-        format.html { redirect_to @test, notice: "Test was successfully updated." }
+        format.html { redirect_to @test, notice: 'Test was successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -51,15 +52,17 @@ class TestsController < ApplicationController
 
   def destroy
     @test.destroy
-    respond_to do |format|
-      format.html { redirect_to tests_url, notice: "Test was successfully destroyed." }
-    end
+    format.html { redirect_to tests_path, notice: 'Test was successfully destroyed.' }
   end
 
   private
 
   def rescue_test_not_found
     render plain: 'Test was not found.'
+  end
+
+  def rescue_question_exists
+    render plain: 'Test has not been deleted. There are undeleted questions.'
   end
 
   def set_test
