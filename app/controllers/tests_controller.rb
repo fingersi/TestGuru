@@ -21,7 +21,7 @@ class TestsController < ApplicationController
     if @test_passing.save
       redirect_to test_passing_path(@test_passing)
     else
-      format.html { render :new, status: :unprocessable_entity }
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -31,28 +31,24 @@ class TestsController < ApplicationController
   def create
     @test = Test.new(test_params)
 
-    respond_to do |format|
-      if @test.save
-        format.html { redirect_to @test, notice: 'Test was successfully created.' }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    if @test.save
+      redirect_to @test, notice: 'Test was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    respond_to do |format|
-      if @test.update(test_params)
-        format.html { redirect_to @test, notice: 'Test was successfully updated.' }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-      end
+    if @test.update(test_params)
+      redirect_to @test, notice: 'Test was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @test.destroy
-    format.html { redirect_to tests_path, notice: 'Test was successfully destroyed.' }
+    redirect_to tests_path, notice: 'Test was successfully destroyed.'
   end
 
   private
