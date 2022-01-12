@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   get 'users/new'
   get :signup, to: 'users#new'
   get :login, to: 'sessions#new'
+  delete :login, to: 'sessions#destroy'
 
-  resource :sessions, only: :create
+  resource :sessions, only: %i[create delete]
   resource :users, only: :create
 
   resources :tests do

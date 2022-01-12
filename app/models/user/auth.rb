@@ -5,7 +5,7 @@ module User::Auth
   attr_reader :password
   attr_writer :password_confirmation
 
-  include do
+  included do
     validates :email, presence: true
     validates :password, presence: true, if: Proc.new{ |u| u.password_digest.present? }
     validates :password, confirmation: true
