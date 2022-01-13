@@ -38,6 +38,3 @@ Answer.find_or_create_by(value: '753 до н.э.', correct: true, question_id: q
 Answer.find_or_create_by(value: '1 н.э', correct: false, question_id: question5.id)
 Answer.find_or_create_by(value: '543 до н.э', correct: false, question_id: question5.id)
 
-UserHistory.find_or_create_by(user_id: user.id, test_id: test2.id, level: test2.level)
-UserHistory.find_or_create_by(user_id: user.id, test_id: test1.id, level: test1.level)
-UserHistory.find_or_create_by(user_id: user.id, test_id: test1.id, level: test1.level)
