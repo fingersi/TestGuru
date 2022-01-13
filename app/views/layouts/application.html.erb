@@ -10,13 +10,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <nav>
-  <div class="nav" id="navbarColor01">
-    <ul class="nav menu">
+    <ul class="nav">
       <li class="nav menu">
-        <%= link_to 'TestGuru', root_path %>
+        <%= link_to 'TestGuru', root_path, class: 'nav link' %>
       </li>
       <li class="nav menu">
-        <%= link_to 'Tests', tests_path %>
+        <%= link_to 'Tests', tests_path, class: 'nav link' %>
       </li>
       <li class="nav menu">
         <%= log_in_log_out %>
@@ -25,7 +24,6 @@
         <%= user_name %>
       </li>
     </ul>
-  </div>
 </nav>
 
   <body>

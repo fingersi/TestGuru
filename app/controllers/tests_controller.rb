@@ -18,7 +18,7 @@ class TestsController < ApplicationController
   end
 
   def start
-    @test_passing = TestPassing.new(user_id: User.second.id, test_id: @test.id, level: @test.level)
+    @test_passing = TestPassing.new(user_id: current_user.id, test_id: @test.id, level: @test.level)
     if @test_passing.save
       redirect_to test_passing_path(@test_passing)
     else

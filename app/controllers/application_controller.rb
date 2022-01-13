@@ -8,7 +8,10 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_user!
-    redirect_to login_path unless current_user
+    unless current_user
+      session[:original_url] = request.original_url
+      redirect_to login_path
+    end 
   end
 
   def current_user
@@ -18,4 +21,6 @@ class ApplicationController < ActionController::Base
   def loggen_in?
     @current_user.present?
   end
+
+
 end

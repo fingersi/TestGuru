@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     user = User.find_by(login: params[:login]) || User.find_by(email: params[:login])
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to tests_path
+      redirect_to session[:original_url]
     else
       flash[:alert].now = 'Login or Password was incorrect.'
       render :new
