@@ -1,4 +1,5 @@
 class TestsController < ApplicationController
+
   before_action :set_test, only: %i[show edit update destroy start]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_test_not_found
@@ -17,7 +18,7 @@ class TestsController < ApplicationController
   end
 
   def start
-    @test_passing = TestPassing.new(user_id: User.second.id, test_id: @test.id, level: @test.level)
+    @test_passing = TestPassing.new(user_id: current_user.id, test_id: @test.id, level: @test.level)
     if @test_passing.save
       redirect_to test_passing_path(@test_passing)
     else
