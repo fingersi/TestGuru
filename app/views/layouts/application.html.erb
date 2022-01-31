@@ -24,7 +24,9 @@
         <%= user_name %>
       </li>
     </ul>
-</nav>
+  </nav>
+
+  <%= render "devise/shared/error_messages" %>
 
   <body>
     <%= yield %>
