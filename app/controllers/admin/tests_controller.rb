@@ -1,6 +1,6 @@
-class TestsController < ApplicationController
+class Admin::TestsController < Admin::BaseController
 
-  before_action :set_test, only: %i[show edit update destroy start]
+  before_action :set_test, only: %i[show edit update destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_test_not_found
   rescue_from ActiveRecord::InvalidForeignKey, with: :rescue_question_exists
@@ -10,28 +10,29 @@ class TestsController < ApplicationController
   end
 
   def show
-    redirect_to test_questions_path(@test)
+    redirect_to admin_test_questions_path(@test)
   end
 
   def new
     @test = Test.new
   end
 
-  def start
-    @test_passing = TestPassing.new(user_id: current_user.id, test_id: @test.id, level: @test.level)
-    if @test_passing.save
-      redirect_to test_passing_path(@test_passing)
+  def edit
+  end
+
+  def create
+    @test = Test.new(test_params.merge(author_id: current_user.id))
+
+    if @test.save
+      redirect_to admin_test_path(@test), notice: 'Test was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  def edit
-  end
-
   def update
     if @test.update(test_params)
-      redirect_to @test, notice: 'Test was successfully updated.'
+      redirect_to admin_test_path(@test), notice: 'Test was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -39,7 +40,7 @@ class TestsController < ApplicationController
 
   def destroy
     @test.destroy
-    redirect_to tests_path, notice: 'Test was successfully destroyed.'
+    redirect_to admin_tests_path, notice: 'Test was successfully destroyed.'
   end
 
   private

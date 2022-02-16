@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(users_params)
+    @user = User.new(user_params)
 
     if @user.save
       redirect_to tests_path
@@ -16,9 +16,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def complete_form
+  end
+
+  def update
+    if current_user.update(complete_params)
+      redirect_to right_first_page
+    else
+      render :complete_form
+    end
+  end
+
   private
 
-  def users_params
-    params.require(:user).permit(:login, :email, :password, :password_confirmation)
+  def user_params
+    params.require(:user).permit(:login, :email, :password, :password_confirmation, :firt_name, :last_name)
+  end
+
+  def complete_params
+    params.permit(:first_name, :last_name)
   end
 end

@@ -1,0 +1,23 @@
+<h1>Question id: <%= params[:id] %> </h1>
+
+<p> <%= link_to @question.test.title, admin_test_questions_path(@question.test) %></p>
+
+<p>
+  <label for='question-body'>Body</label>
+  <p><%= @question.body %></p>
+  <p><%= link_to "delete", admin_question_path(@question), :method => :delete %> </p>
+  <p><%= link_to "update", edit_admin_question_path(@question) %> </p>
+  <label for='question-answers'>Answers</label>
+  <p><%= link_to "New Answer", new_admin_question_answer_path(@question) %> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Body</th>
+        <th>Correct</th>
+      </tr>
+    </thead>
+    <tbody>
+    <%= render @question.answers%>
+    </tbody>
+  </table>
+</p>
