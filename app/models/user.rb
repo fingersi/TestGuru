@@ -12,4 +12,8 @@ class User < ApplicationRecord
   def history(level)
     Test.joins(:users).where('tests.level = ? AND user_id = ?', level, id)
   end
+
+  def admin?
+    is_a?(Admin)
+  end
 end

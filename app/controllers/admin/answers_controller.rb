@@ -10,11 +10,12 @@ class Admin::AnswersController < Admin::BaseController
   end
 
   def new
-    @answer = Answer.new(question_id: @question.id)
+    @answer = @question.answers.new
   end
 
   def create
-    if @question.answers.push(Answer.new(answer_params))
+    @answer = @question.answers.push(Answer.new(answer_params))
+    if @answer.save
       redirect_to admin_question_path(@question)
     else
       render :new
@@ -37,15 +38,10 @@ class Admin::AnswersController < Admin::BaseController
   private
 
   def find_question
-    puts "params[:question_id]#{params[:question_id]}"
-
     @question = Question.find(params[:question_id].to_i)
-    puts "@question.answers #{@question.answers.first}"
-    @question
   end
 
   def find_answer
-    puts "params :id #{params[:id]}"
     @answer = Answer.find(params[:id])
   end
 

@@ -24,7 +24,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new(test_id: @test.id)
+    @question = @test.questions.new
   end
 
   def create

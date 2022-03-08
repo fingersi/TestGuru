@@ -1,5 +1,4 @@
 <% if flash.present? %>
-<h2>Errors:</h2>
   <% flash.each do |error| %>
     <%= content_tag :p, "#{error[0]}: #{error[1]}", class: "flash #{error[0]}" %>
   <% end %>
