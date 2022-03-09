@@ -10,7 +10,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def show
-    redirect_to admin_test_questions_path(@test)
   end
 
   def new

@@ -14,7 +14,7 @@ class Admin::AnswersController < Admin::BaseController
   end
 
   def create
-    @answer = @question.answers.push(Answer.new(answer_params))
+    @answer = @question.answers.new(answer_params)
     if @answer.save
       redirect_to admin_question_path(@question)
     else
@@ -38,7 +38,7 @@ class Admin::AnswersController < Admin::BaseController
   private
 
   def find_question
-    @question = Question.find(params[:question_id].to_i)
+    @question = Question.find(params[:question_id])
   end
 
   def find_answer

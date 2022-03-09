@@ -6,8 +6,7 @@ class Admin::BaseController < ApplicationController
   private
 
   def authenticate_admin
-    unless current_user.is_a?(Admin)
-      puts "You are Admin"
+    unless current_user.admin?
       redirect_to root_path, alert: 'You are not permited to view this page'
     end
   end
