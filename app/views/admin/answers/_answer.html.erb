@@ -2,5 +2,5 @@
   <td><%= answer.value %></td>
   <td><%= answer.correct %></td>
   <td><%= link_to t('edit'), edit_admin_answer_path(answer) %></td>
-  <td><%= link_to t('destroy'), admin_answer_path(answer), method: :delete, data: { confirm: t('are_you_sure') } %></td>
+  <td><%= link_to t('destroy'), admin_answer_path(answer), method: :delete, confirm: t('are_youf_sure') %></td>
 </tr>

@@ -16,6 +16,7 @@ en:
   edit: 'Update'
   destroy: 'Destroy'
   start: 'Start'
+  are_you_sure: 'Are you sure?'
 
   menu:
     main: 'TestGuru'

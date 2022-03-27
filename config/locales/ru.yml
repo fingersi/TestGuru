@@ -11,6 +11,9 @@ ru:
         update: 'следующий'
         show: 'следующий'
 
+    select:
+      prompt: "Cделайте выбор"
+
     label:
       test:
         title: 'Название теста'
@@ -28,7 +31,8 @@ ru:
   edit: 'Изменить'
   destroy: 'Удалить'
   start: 'Старт'
-  next: 'cледующией'
+  next: 'Cледующией'
+  are_you_sure: 'Вы уверены?'
 
   devise:
     confirmation:
@@ -52,6 +56,9 @@ ru:
   tests:
     index: 
       title: 'Тесты'
+    
+    new:
+      title: 'Создать новый тест'
   
   test_passing:
     show:
@@ -72,8 +79,8 @@ ru:
         body: 'Текст вопроса'
         new_answer: 'Новый ответ'
         answers: 'Ответы:'
-        answer: 'ответ'
-        correct: 'правильность'
+        answer: 'Ответ'
+        correct: 'Правильность'
         
     tests:
       index:
@@ -98,10 +105,6 @@ ru:
 
       new:
         title: 'Название теста'
-      
-    answers:
-      answer:
-        are_you_sure: 'Вы уверены?'
 
   activerecord:
     attributes:
