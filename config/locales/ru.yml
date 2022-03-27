@@ -30,6 +30,12 @@ ru:
   start: 'Старт'
   next: 'cледующией'
 
+  devise:
+    confirmation:
+      email: 'email'
+      resend: 'resend'
+
+
   menu:
     main: 'ТестГуру'
     tests: 'Тесты'
@@ -76,10 +82,12 @@ ru:
         new_test: "Новый тест"
 
       show:
-        title: "Тест %{test} все вопросы"
-        all_quest: 'все вопросы.'
+        title: "Тест %{test} и вопросы"
+        all_quest: 'Все вопросы.'
         new_question: 'Новый вопрос'
         all_tests: 'Вернуться на все вопросы'
+        body: 'Вопрос'
+        action: 'Действия'
 
       new:
         title: "Новый тест"
@@ -94,6 +102,31 @@ ru:
     answers:
       answer:
         are_you_sure: 'Вы уверены?'
+
+  activerecord:
+    attributes:
+      user:
+        email: 'Электронная почта'
+        login: 'Логин'
+        admin: 'Администратор'
+        first_name: 'Имя'
+        last_name: 'Фамилия'
+      
+      test:
+        title: 'Название'
+        level: 'Уровень'
+        author_id: 'Автор'
+      
+      question:
+        body: 'Вопрос'
+
+      answer:
+        value: 'Ответ'
+        correct: 'Правильность'
+
+
+
+
 
 
       

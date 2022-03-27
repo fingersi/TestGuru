@@ -26,7 +26,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_url
-    puts "params[:lang]&.to_sym == I18n.default_locale #{params[:lang]&.to_sym == I18n.default_locale}"
     params[:lang]&.to_sym == I18n.default_locale ? nil : I18n.locale
   end
 end
