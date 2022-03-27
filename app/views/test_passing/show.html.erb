@@ -1,5 +1,5 @@
-<h1>Show TestPassing <%= @test_passing.test.title %> </h1>
-<p> Question number <%= @test_passing.current_question_number %> of <%= @test_passing.total_questions %></p>
+<h1> <%= t('.title') %> <%= @test_passing.test.title %> </h1>
+<p> <%= t('test_passing.show.question_number', current: @test_passing.current_question_number, all: @test_passing.total_questions )%></p>
 
 <%= @test_passing.current_question.body %>
 <%= form_with url: test_passing_path(@test_passing), local: true, method: :put do |form| %>
@@ -9,5 +9,5 @@
       <%= b.label %>
     </p>
   <% end %>
-  <%= form.submit "next" %>
+  <%= form.submit %>
 <% end %>

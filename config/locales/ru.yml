@@ -1,0 +1,100 @@
+ru:
+  helpers:
+    submit:
+      test:
+        update: 'Обновить'
+        create: 'Создать'
+      question:
+        create: 'Создать вопрос'
+      test_passing:
+        create: 'cледующий'
+        update: 'следующий'
+        show: 'следующий'
+
+    label:
+      test:
+        title: 'Название теста'
+        category: 'Выбор категории'
+        level: 'Уровень'
+      question:
+        body: 'Текст вопроса'
+
+      test_passing:
+        create: 'следующий'
+        update: 'следующий'
+
+  back: "Обратно"
+  show: 'Показать'
+  edit: 'Изменить'
+  destroy: 'Удалить'
+  start: 'Старт'
+  next: 'cледующией'
+
+  menu:
+    main: 'ТестГуру'
+    tests: 'Тесты'
+    login: 'Войти'
+    logout: 'Выйти'
+    welcome: 'Добро пожаловать, %{user} guru.'
+    register: 'Зарегистрироваться'
+
+  footer: 
+    part1: "Меня зовут Алексей, изучаю Ruby on Rails"
+    part2: "Ссылка на репозиторий проекта %{github}"
+    part3: "Учебный проект в онлайн-школе %{href}"
+
+  tests:
+    index: 
+      title: 'Тесты'
+  
+  test_passing:
+    show:
+      title: 'Прохождение теста:'
+      question_number: "Вопрос номер %{current} из %{all}."
+
+    result:
+      all_tests: 'Назад ко всем тестам'
+      result: 'Ваш результат:'
+      success: 'Тест успешно пройден!'
+      bad_result: 'Тест не пройдет =('
+      mark: 'Ваша оценка:'
+
+  admin:
+    questions:
+      show:
+        title: 'Вопрос номер:'
+        body: 'Текст вопроса'
+        new_answer: 'Новый ответ'
+        answers: 'Ответы:'
+        answer: 'ответ'
+        correct: 'правильность'
+        
+    tests:
+      index:
+        title: 'Тесты'
+        header: 'Тесты'
+        new_test: "Новый тест"
+
+      show:
+        title: "Тест %{test} все вопросы"
+        all_quest: 'все вопросы.'
+        new_question: 'Новый вопрос'
+        all_tests: 'Вернуться на все вопросы'
+
+      new:
+        title: "Новый тест"
+        back: "Обратно"
+      
+      edit:
+        title: 'Изменить тест.'
+
+      new:
+        title: 'Название теста'
+      
+    answers:
+      answer:
+        are_you_sure: 'Вы уверены?'
+
+
+      
+

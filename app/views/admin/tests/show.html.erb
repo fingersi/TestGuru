@@ -1,7 +1,7 @@
-<h1>Test <%= @test.title %> all questions </h1>
+<h1><%= t('.title', test: @test.title) %></h1>
 
-<p><%= link_to 'New Question', new_admin_test_question_path(@test.id) %> </p>
-<p> <%= link_to 'All_tests', admin_tests_path %></p>
+<p><%= link_to t('.new_question'), new_admin_test_question_path(@test.id) %> </p>
+<p> <%= link_to t('.all_tests'), admin_tests_path %></p>
 
 <table>
   <thead>

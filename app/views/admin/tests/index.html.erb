@@ -1,5 +1,5 @@
 
-<h1>Tests</h1>
+<h1><%= t('.title') %></h1>
 
 <table>
   <thead>
@@ -12,9 +12,9 @@
     <% @tests.each do |test| %>
       <tr>
         <td><%= test.title %></td>
-        <td><%= link_to 'Show', admin_test_path(test) %></td>
-        <td><%= link_to 'Edit', edit_admin_test_path(test) %></td>
-        <td><%= link_to 'Destroy', admin_test_path(test), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('show'), admin_test_path(test) %></td>
+        <td><%= link_to t('edit'), edit_admin_test_path(test) %></td>
+        <td><%= link_to t('destroy'), admin_test_path(test), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Test', new_admin_test_path %>
+<%= link_to t('.new_test'), new_admin_test_path %>
