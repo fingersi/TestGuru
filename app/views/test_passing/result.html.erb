@@ -1,6 +1,5 @@
 
-<p> <%= link_to 'All_tests', tests_path %></p>
-<%= link_to 'Back', tests_path %>
+<p> <%= link_to t('.all_tests'), tests_path %></p>
 <% test_result = result_final_text(@test_passing) %>
 <p><font size='6' color= <%= test_result[:color]%> face='serif'><%= test_result[:text] %></font></p>
-<p><font size='6' color= <%= test_result[:color]%> face='serif'>Your Mark: <%= @test_passing.mark %></font></p>
+<p><font size='6' color= <%= test_result[:color]%> face='serif'> <%= t('.mark') %> <%= @test_passing.mark %></font></p>

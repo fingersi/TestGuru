@@ -12,10 +12,10 @@
   <nav>
     <ul class="nav">
       <li class="nav menu">
-        <%= link_to 'TestGuru', root_path, class: 'nav link' %>
+        <%= link_to t('menu.main'), root_path, class: 'nav link' %>
       </li>
       <li class="nav menu">
-        <%= link_to 'Tests', tests_path, class: 'nav link' %>
+        <%= link_to t('menu.tests'), tests_path, class: 'nav link' %>
       </li>
       <li class="nav menu">
         <%= log_in_log_out %>
@@ -33,9 +33,9 @@
   </body>
   <br>
   <footer>
-    <p> Меня зовут Алексей, изучаю Ruby on Rails </p>
-    <p>Ссылка на репозиторий проекта <%= github_url('fingersi') %> </p>
-    <p>Учебный проект в онлайн-школе <a href='https://thinknetica.com/'>Thinknetica</a></p>
-    <p>Copyright <%= current_year %> </p>
+    <p><%= t('footer.part1') %> </p>
+    <p><%= t('footer.part2', github: github_url('fingersi')).html_safe  %>
+    <p><%= t('footer.part3', href: (link_to 'Thinknetica', "https://thinknetica.com/")).html_safe %> </p>
+    <p>Copyright <%= current_year %></p>
   <footer>
 </html>

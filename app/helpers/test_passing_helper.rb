@@ -1,9 +1,9 @@
 module TestPassingHelper
   def result_final_text(test_passing)
     if test_passing.successfull?
-      { color: 'green', text: 'Test has been completed' }
+      { color: 'green', text: t('test_passing.result.success') }
     else
-      { color: 'red', text: 'Test has not been completed' }
+      { color: 'red', text: t('test_passing.result.bad_result') }
     end
   end
 end

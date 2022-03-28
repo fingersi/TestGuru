@@ -1,33 +1,104 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  helpers:
+    submit:
+      test:
+        update: 'Update'
+        create: 'Create'
+    
+    label:
+      test:
+        title: 'Test title'
+        category: 'Select Category'
+        level: 'Level'
+
+  back: "Back"
+  show: 'Show'
+  edit: 'Update'
+  destroy: 'Destroy'
+  start: 'Start'
+  are_you_sure: 'Are you sure?'
+
+  menu:
+    main: 'TestGuru'
+    tests: 'Tests'
+    login: 'Login'
+    logout: 'Logout'
+    welcome: 'Welcome, %{user} guru.'
+    register: 'Register'
+
+  footer: 
+    part1: "Hi, my name is Alex and I study Ruby on Rails"
+    part2: "This project link %{github}"
+    part3: "My cource in on-line school %{href}"
+
+  tests:
+    index: 'Tests'
+  
+  test_passing:
+    show:
+      title: 'Прохождение теста:'
+      question_number: "Вопрос номер %{current} из %{all}."
+
+    result:
+      all_tests: 'Назад ко всем тестам'
+      result: 'Ваш результат:'
+      success: 'Test has been completed'
+      bad_result: 'Test has not been completed'
+      mark: 'Ваша оценка:'
+  
+  admin:
+    questions:
+      question: 
+        show: 
+          title: 'Вопрос номер:'
+          body: 'Текст вопроса'
+          new_answer: 'Новый ответ'
+          answers: 'Answers:'
+          answer: 'answer'
+          correct: 'correct'
+
+    tests:
+      index:
+        title: 'Tests'
+        header: 'Tests'
+
+      show:
+        title: "Test %{test} all question."
+        all_quest: 'Questions.'
+        new_question: 'New question'
+        all_tests: 'Return to all tests'
+        body: 'Вопрос'
+        action: 'Действия'
+
+      new:
+        title: "New Test"
+        back: "Back"
+
+      edit:
+        title: 'Update test.'
+
+    
+    answers:
+      answer:
+        are_you_sure: 'Are you sure?'
+
+  activerecord:
+    attributes:
+      user:
+        email: 'Email'
+        login: 'Login'
+        admin: 'Admin'
+        first_name: 'First name'
+        last_name: 'Last Name'
+      
+      test:
+        title: 'Title'
+        level: 'Level'
+        author_id: 'Author'
+      
+      question:
+        body: 'Question'
+
+      answer:
+        value: 'Answer'
+        correct: 'Correct'
