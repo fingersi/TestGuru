@@ -23,7 +23,8 @@ en:
     tests: 'Tests'
     login: 'Login'
     logout: 'Logout'
-    welcome: 'Welcome, %{user} guru.'
+    welcome: 'Welcome'
+    guru: 'Guru'
     register: 'Register'
 
   footer: 
@@ -32,7 +33,11 @@ en:
     part3: "My cource in on-line school %{href}"
 
   tests:
-    index: 'Tests'
+    index: 
+      title: 'Tests'
+ 
+  
+
   
   test_passing:
     show:
@@ -73,6 +78,9 @@ en:
       new:
         title: "New Test"
         back: "Back"
+
+      form:
+        create: 'Create Test'
 
       edit:
         title: 'Update test.'

@@ -1,35 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Testguru</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <nav>
-    <ul class="nav">
-      <li class="nav menu">
-        <%= link_to t('menu.main'), root_path, class: 'nav link' %>
-      </li>
-      <li class="nav menu">
-        <%= link_to t('menu.tests'), tests_path, class: 'nav link' %>
-      </li>
-      <li class="nav menu">
-        <%= log_in_log_out %>
-      </li>
-      <li class="nav menu">
-        <%= user_name %>
-      </li>
-    </ul>
-  </nav>
 
-  <%= render 'shared/errors' %>
+  <%= render 'shared/nav'%>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= render 'shared/errors' %>
+      <%= yield %>
+    </div>
   </body>
   <br>
   <footer>

@@ -45,7 +45,8 @@ ru:
     tests: 'Тесты'
     login: 'Войти'
     logout: 'Выйти'
-    welcome: 'Добро пожаловать, %{user} guru.'
+    welcome: 'Добро пожаловать'
+    guru: 'Гуру'
     register: 'Зарегистрироваться'
 
   footer: 
@@ -105,6 +106,9 @@ ru:
 
       new:
         title: 'Название теста'
+
+      form:
+        create: 'Cоздать тест'
 
   activerecord:
     attributes:
