@@ -1,19 +1,14 @@
 
 <h1><%= t('.title') %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+<table class="table table-borderless">
 
   <tbody>
     <% @tests.each do |test| %>
-      <tr>
-        <td><%= test.title %></td>
-        <td><%= link_to t('start'), start_test_path(test), method: :post %></td>
-      </tr>
+        <tr class="col-12 col-md-4 content">
+          <td><%= test.title %></td>
+          <td><%= link_to t('start'), start_test_path(test), method: :post, class: "btn btn-light" %></td>
+        </tr>
     <% end %>
   </tbody>
 </table>

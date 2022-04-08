@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  root 'tests#index'
+  root to: 'tests#index'
+
+  authenticate :user, lambda { |u| u.admin? } do
+    root to: 'admin/tests#index', as: :admin_root
+  end
 
   devise_for :users, path: 'guru', path_names: { sign_in: :login, sign_out: :logout }, controllers: { sessions: "users/sessions" }
   resources :tests, only: :index do

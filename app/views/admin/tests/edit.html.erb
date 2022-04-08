@@ -2,5 +2,5 @@
 
 <%= render 'form', test: @test %>
 
-<%= link_to t('show'), admin_test_path(@test) %> |
-<%= link_to t('back'), admin_tests_path %>
+<%= link_to t('show'), admin_test_path(@test), class: "link-secondary" %> |
+<%= link_to t('back'), admin_tests_path, class: "link-secondary" %>
