@@ -1,5 +1,5 @@
 <% if flash.present? %>
   <% flash.each do |error| %>  
-    <%= content_tag :p, "#{error[0]}: #{error[1]}", class: flash_class1(error[0]) %>
+    <%= content_tag :p, "#{error[0]}: #{error[1]}".html_safe, class: flash_class1(error[0]) %>
   <% end %>
 <% end %>

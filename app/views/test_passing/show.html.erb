@@ -1,6 +1,8 @@
 <h1> <%= t('.title') %> <%= @test_passing.test.title %> </h1>
 <p> <%= t('test_passing.show.question_number', current: @test_passing.current_question_number, all: @test_passing.total_questions )%></p>
 
+<p><%= link_to t('.save_gist'), save_test_passing_path(@test_passing.id),  method: :post%></p>
+
 <%= @test_passing.current_question.body %>
 <%= form_with url: test_passing_path(@test_passing), local: true, method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @test_passing.current_question.answers, :id, :value, include_hidden: false do |b| %>

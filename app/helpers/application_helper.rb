@@ -17,10 +17,12 @@ module ApplicationHelper
   end
 
   def flash_class1(level)
-    classes = { notice: "alert alert-info",
-                success: "alert alert-success",
-                error: "alert alert-danger",
-                alert: "alert alert-warning" }
+    classes = {
+      notice: 'alert alert-info',
+      success: 'alert alert-success',
+      error: 'alert alert-danger',
+      alert: 'alert alert-warning'
+    }
 
     classes[level.to_sym]
   end

@@ -1,4 +1,9 @@
 en:
+  controllers:
+    admin:
+      test_passing:
+        gist_saved: 'Question has beeb saved: '
+
   helpers:
     submit:
       test:
@@ -17,6 +22,8 @@ en:
   destroy: 'Destroy'
   start: 'Start'
   are_you_sure: 'Are you sure?'
+  gist_save: 'Question about %{test}.'
+  question: 'Question'
 
   menu:
     main: 'TestGuru'
@@ -50,6 +57,13 @@ en:
       success: 'Test has been completed'
       bad_result: 'Test has not been completed'
       mark: 'Ваша оценка:'
+
+    save:
+      gist_saved: 'Question has been saved: '
+      gist_not_saved: 'Question has not been saved'
+
+
+    
   
   admin:
     questions:
@@ -84,6 +98,13 @@ en:
 
       edit:
         title: 'Update test.'
+      
+    gists:
+      index:
+        title: 'All created gists.'
+        question: 'Question'
+        gist_hash: 'Gist'
+        user: 'User'
 
     
     answers:
@@ -110,3 +131,5 @@ en:
       answer:
         value: 'Answer'
         correct: 'Correct'
+
+  
