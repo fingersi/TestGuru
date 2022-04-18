@@ -1,0 +1,20 @@
+<h2><%= t('.title') %></h2>
+
+<p><%= link_to 'Delete all gists', admin_gists_path, method: :delete %> </p>
+
+<table class="table table-borderless">
+  <tr>
+    <th><%= t('.question')%></th>
+    <th><%= t('.gist_hash')%></th>
+    <th><%= t('.user')%></th>
+  </tr>
+  <tbody>
+    <% @gists.each do |gist| %>
+      <tr class="col-12 col-md-4 content">
+        <td vertical-align="middle"><%= link_to gist.question.body.first(25), admin_question_path(gist.question)%>  </td>
+        <td vertical-align="middle"><%= link_to gist.link.delete_prefix('https://gist.github.com/'), gist.link %>  </td>
+        <td vertical-align="middle"><%= gist.user.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

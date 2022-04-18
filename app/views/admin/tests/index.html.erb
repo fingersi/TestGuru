@@ -1,7 +1,9 @@
 
 <h1><%= t('.title') %></h1>
 
-<%= link_to t('.new_test'), new_admin_test_path, class: "link-secondary" %>
+<p><%= link_to t('.new_test'), new_admin_test_path, class: "link-secondary" %></p>
+
+<p><%= link_to 'All gists', admin_gists_path %></p>
 
 <table class="table table-borderless">
   <tbody>
@@ -15,7 +17,6 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
 
 
