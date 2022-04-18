@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'gists', to: 'gists#index'
+    delete 'gists', to: 'gists#clear_gists'
     resources :tests do
       resources :questions, shallow: true do
         resources :answers, except: :index, shallow: true

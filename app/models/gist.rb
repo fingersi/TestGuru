@@ -1,5 +1,4 @@
 class Gist < ApplicationRecord
-  require 'uri'
 
   belongs_to :question
   belongs_to :user

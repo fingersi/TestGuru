@@ -1,27 +1,30 @@
 class GistSaveService
 
   EXCEPTIONS = [Octokit::Error, Faraday::ClientError, Faraday::ServerError, Faraday::ConnectionFailed].freeze
+  SUCCESSFUL_RESPONSE_CODES = 200..299
 
   def initialize
     @client = Octokit::Client.new(access_token: Rails.application.credentials.github[:token])
   end
 
-  def call(test_passing, user)
-    Gist.new(
-      question_id: test_passing.current_question.id,
-      link: save_gist(test_passing.current_question),
-      user_id: user.id
-    )
-  end
-
-  private
-
-  def save_gist(question)
-    @client.create_gist(gist_content(question)).html_url
+  def call(test_passing)
+    @client.create_gist(gist_content(test_passing.current_question)).html_url
   rescue *EXCEPTIONS => e
     puts "error: #{e}"
     nil
   end
+
+  def success?
+    return @client.last_response.status >= 200 unless @client.last_response.nil?
+
+    false
+  end
+
+  def delete_gist(id)
+    @client.delete_gist(id)
+  end
+
+  private
 
   def gist_content(question)
     str = ''

@@ -20,24 +20,25 @@ class TestPassingController < ApplicationController
   end
 
   def save
-    @gist = GistSaveService.new.call(@test_passing, current_user)
-    puts "@gist.valid? #{@gist.valid?}"
-    puts "@gist.link #{@gist.link.to_s}"
-    if @gist.save
-      puts "gist.save true"
-      flash = { notice: "#{t('.gist_saved')} #{view_context.link_to 'link', @gist&.link}"}
-    else
-      puts "gist.save false"
-      flash = { alert: t('.gist_not_saved') }
-    end
-    puts "result: #{result}"
-    puts "result.class: #{result.class}"
-    puts "flash: #{flash}"
-    puts "flash.class: #{flash.class}"
-    redirect_to @test_passing, flash
+    gist_service = GistSaveService.new
+    @gist = Gist.new(
+      user_id: current_user.id,
+      question_id: @test_passing.current_question.id,
+      link: gist_service.call(@test_passing)
+    )
+
+    redirect_to @test_passing, flash_message(gist_service.success? & @gist.save)
   end
 
   private
+
+  def flash_message(saved_success)
+    if saved_success
+      { notice: "#{t('.gist_saved')} #{view_context.link_to 'link', @gist&.link}"}
+    else
+      { alert: t('.gist_not_saved') }
+    end
+  end
 
   def rescue_test_passing_not_found
     render plain: 'Test_passing was not found.'
