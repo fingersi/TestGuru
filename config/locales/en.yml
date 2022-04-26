@@ -42,9 +42,7 @@ en:
   tests:
     index: 
       title: 'Tests'
- 
-  
-
+      actions: 'Actions'
   
   test_passing:
     show:
@@ -62,9 +60,6 @@ en:
       gist_saved: 'Question has been saved: '
       gist_not_saved: 'Question has not been saved'
 
-
-    
-  
   admin:
     questions:
       question: 

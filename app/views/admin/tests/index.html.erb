@@ -6,6 +6,13 @@
 <p><%= link_to 'All gists', admin_gists_path %></p>
 
 <table class="table table-borderless">
+  <tr>
+    <th><%= t('.test_tile')%>
+      <%= octicon 'arrow-up', class: 'text-alert hide'%>
+      <%= octicon 'arrow-down', class: 'text-alert hide'%>
+    </th>
+    <th><%= t('.actions')%></th>
+  </tr>
   <tbody>
     <% @tests.each do |test| %>
       <tr class="col-12 col-md-4 content">

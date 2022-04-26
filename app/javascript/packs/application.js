@@ -13,6 +13,7 @@ import "channels"
 import 'jquery'
 import 'popper.js'
 import 'bootstrap'
+import './sort_by_title.js'
 
 import '../stylesheets/application'
 
