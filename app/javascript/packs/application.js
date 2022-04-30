@@ -13,6 +13,8 @@ import "channels"
 import 'jquery'
 import 'popper.js'
 import 'bootstrap'
+import './sort_by_title.js'
+import './check_password.js'
 
 import '../stylesheets/application'
 

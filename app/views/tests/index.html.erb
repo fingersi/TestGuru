@@ -1,7 +1,14 @@
 
 <h1><%= t('.title') %></h1>
-
+<div>
 <table class="table table-borderless">
+  <tr>
+    <th class="sort-by-title pointer"><%= t('.test_tile')%>
+      <%= octicon 'arrow-up', class: 'arrow-up hide'%>
+      <%= octicon 'arrow-down', class: 'arrow-down hide'%>
+    </th>
+    <th><%= t('.actions')%></th>
+  </tr>
   <tbody>
     <% @tests.each do |test| %>
         <tr class="col-12 col-md-4 content">
@@ -11,5 +18,7 @@
     <% end %>
   </tbody>
 </table>
+</div>
+
 
 

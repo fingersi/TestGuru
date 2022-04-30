@@ -60,6 +60,7 @@ ru:
   tests:
     index: 
       title: 'Тесты'
+      actions: 'Действия'
     
     new:
       title: 'Создать новый тест'
