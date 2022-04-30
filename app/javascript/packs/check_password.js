@@ -15,13 +15,24 @@ function check_password(){
   var message = document.createElement('p')
   message.setAttribute("id", "pswd_message")
   var container = document.getElementById('pass_message')
-  var reg = new RegExp("(?=.*[A-Z])(?=.*[0-9])")
+  var reg = new RegExp("(?=.*[A-Z])(?=.*[0-9])(?=.{6,})")
+
   if(!pswd_input.value){
     message.textContent = ''
-  }else if (!reg.test(pswd_input.value)) {
+    container.appendChild(message)
+
+    return 
+  }
+  
+  if (!reg.test(pswd_input.value)) {
     message.textContent = 'Password is weak'
     message.classList.add('text-danger')
-  }else if (pswd_input.value != pswd_confirmation.value) {
+    container.appendChild(message)
+
+    return
+  }
+  
+  if (pswd_input.value != pswd_confirmation.value) {
     message.textContent = 'Passwords are not the same'
     message.classList.add('text-danger')
   } else {
