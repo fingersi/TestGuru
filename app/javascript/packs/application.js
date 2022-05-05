@@ -15,6 +15,7 @@ import 'popper.js'
 import 'bootstrap'
 import './sort_by_title.js'
 import './check_password.js'
+import './progress_bar.js'
 
 import '../stylesheets/application'
 
