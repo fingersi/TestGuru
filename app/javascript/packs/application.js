@@ -16,6 +16,8 @@ import 'bootstrap'
 import './sort_by_title.js'
 import './check_password.js'
 import './progress_bar.js'
+import './validate_form.js'
+
 
 import '../stylesheets/application'
 

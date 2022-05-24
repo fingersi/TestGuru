@@ -1,6 +1,6 @@
 addEventListener('turbolinks:load', function(){
   var bar = document.getElementById('Bar')
-  move(parseInt(bar.dataset.progress))
+  if (bar){ move(parseInt(bar.dataset.progress)) }
 })
 
 function move(progress) {
