@@ -13,7 +13,11 @@ class TestPassing < ApplicationRecord
   end
 
   def mark
-    (correct_questions.to_f / test.questions.count) * 100
+    (correct_questions.to_f / total_questions) * 100
+  end
+
+  def progress
+    ((current_question_number.to_f / total_questions) * 100).to_i
   end
 
   def current_question_number
