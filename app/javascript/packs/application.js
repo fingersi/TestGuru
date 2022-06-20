@@ -13,11 +13,13 @@ import "channels"
 import 'jquery'
 import 'popper.js'
 import 'bootstrap'
+import I18n from 'i18n-js'
+window.I18n = I18n
 import './sort_by_title.js'
 import './check_password.js'
 import './progress_bar.js'
 import './validate_form.js'
-
+import './form_short.js'
 
 import '../stylesheets/application'
 

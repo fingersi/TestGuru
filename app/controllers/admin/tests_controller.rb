@@ -1,15 +1,17 @@
 class Admin::TestsController < Admin::BaseController
 
-  before_action :set_test, only: %i[show edit update destroy]
+  before_action :set_tests, only: %i[index update_short]
+  before_action :set_test, only: %i[show edit update destroy update_short]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_test_not_found
   rescue_from ActiveRecord::InvalidForeignKey, with: :rescue_question_exists
 
   def index
-    @tests = Test.all
+
   end
 
   def show
+
   end
 
   def new
@@ -17,6 +19,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def edit
+
   end
 
   def create
@@ -37,6 +40,14 @@ class Admin::TestsController < Admin::BaseController
     end
   end
 
+  def update_short
+    if @test.update(test_params)
+      redirect_to admin_tests_path, notice: 'Test was successfully updated.'
+    else
+      render :index
+    end
+  end
+
   def destroy
     @test.destroy
     redirect_to admin_tests_path, notice: 'Test was successfully destroyed.'
@@ -50,6 +61,10 @@ class Admin::TestsController < Admin::BaseController
 
   def rescue_question_exists
     render plain: 'Test has not been deleted. There are undeleted questions.'
+  end
+
+  def set_tests
+    @tests = Test.all
   end
 
   def set_test

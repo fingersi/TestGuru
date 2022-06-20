@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     get 'gists', to: 'gists#index'
     delete 'gists', to: 'gists#clear_gists'
     resources :tests do
+      patch 'update_short', on: :member
+
       resources :questions, shallow: true do
         resources :answers, except: :index, shallow: true
       end

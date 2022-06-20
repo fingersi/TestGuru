@@ -1,7 +1,15 @@
 
-admin = User.find_or_create_by(login: 'admin', email: 'admin@trymail.ru', admin: true, password: 'IAmAdmin!')
+admin = User.find_or_create_by(login: 'admin', email: 'admin@trymail.ru') do |user|
+  type = 'admin'
+  password =  'IAmAdmin!' 
+  password_confirmation =  'IAmAdmin!'
+end
 
-user = User.find_or_create_by(login: 'user', email: 'user@trymail.ru', admin: false, password: 'IAmUser!')
+user = User.find_or_create_by(login: 'user', email: 'user@trymail.ru') do |user|
+  type = 'user' 
+  password = 'IAmUser!' 
+  password_confirmation= 'IAmUser!'
+end
 
 category1 = Category.find_or_create_by(title: 'Mathematics')
 

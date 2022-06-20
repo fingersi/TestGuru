@@ -1,0 +1,12 @@
+<div class="width_for_table">
+  <%= form_with model:[:admin, test], 
+                url: update_short_admin_test_path(test), 
+                local: true, 
+                class: 'form-short hide',
+                data: {test_id: test.id} do |form| %>
+
+        <%= form.text_field :title, class: "form-control not_empty same_line" %>
+
+        <%= form.submit t('edit'), class: "btn btn-light same_line_btn"  %>
+  <% end %>
+</div>

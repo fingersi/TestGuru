@@ -5,6 +5,8 @@
 
 <p><%= link_to 'All gists', admin_gists_path %></p>
 
+<%= render 'shared/errors', resource: @test %>
+
 <table class="table table-borderless">
   <tr>
     <th><%= t('.test_tile')%>
@@ -15,10 +17,18 @@
   </tr>
   <tbody>
     <% @tests.each do |test| %>
+      <% test = (test == @test ? @test : test) %>
       <tr class="col-12 col-md-4 content">
-        <td vertical-align="middle"><%= test.title %>  </td>
+        <td vertical-align="middle">
+          <%= content_tag :span, test.title, class: 'test-title', data: { test_id: test.id } %>  
+          <%= render 'form_short', test: test %>
+        </td>
         <td><%= link_to t('show'), admin_test_path(test), class: "btn btn-light" %></td>
-        <td><%= link_to t('edit'), edit_admin_test_path(test), class: "btn btn-light" %></td>
+        <td><%= link_to t('edit'),
+                        edit_admin_test_path(test),
+                        data: {test_id: test.id},
+                        class: "btn btn-light for_short_form" %>
+        </td>
         <td><%= link_to t('destroy'), admin_test_path(test), class: "btn btn-light", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

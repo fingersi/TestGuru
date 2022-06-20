@@ -16,8 +16,6 @@ td {
   cursor: pointer;
 }
 
-
-
 #myProgress {
   width: 100%;
   background-color: #ddd;
@@ -30,4 +28,21 @@ td {
   text-align: center; /* To center it horizontally (if you want) */
   line-height: 30px; /* To center it vertically */
   color: white;
+}
+td .same_line_btn {
+  float: right;
+  margin-left: 5px;
+  
+}
+td .same_line {
+  float: left;
+  width: 50%
+}
+
+.width_for_table{
+  width: 80%
+}
+
+.for_warning_message{
+  margin: 0px
 }

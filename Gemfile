@@ -5,8 +5,9 @@ ruby '2.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+# DB
+gem 'pg'
+
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -32,6 +33,7 @@ gem 'devise-i18n'
 gem 'jquery-rails', '4.3.1'
 gem 'bootstrap', '~> 4.0.0'
 gem 'octicons_helper'
+gem "i18n-js"
 
 # GitHub client
 

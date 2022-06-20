@@ -16,8 +16,10 @@ en:
         category: 'Select Category'
         level: 'Level'
 
-  back: "Back"
+  un_valid: 'Un valid value'
+  back: 'Back'
   show: 'Show'
+  cancel: 'Cancel'
   edit: 'Update'
   destroy: 'Destroy'
   start: 'Start'
@@ -93,6 +95,9 @@ en:
 
       edit:
         title: 'Update test.'
+
+      form_short:
+        create: 'Update'
       
     gists:
       index:
