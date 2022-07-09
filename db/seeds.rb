@@ -1,14 +1,14 @@
 
-admin = User.find_or_create_by(login: 'admin', email: 'admin@trymail.ru') do |user|
-  type = 'admin'
-  password = 'IAmAdmin!'
-  password_confirmation = 'IAmAdmin!'
+admin = Admin.find_or_create_by(login: 'admin', email: 'admin@trymail.ru') do |admin|
+  admin.password = 'IAmAdmin!'
+  admin.password_confirmation = 'IAmAdmin!'
+  admin.save!
 end
-
-user = User.find_or_create_by(login: 'user', email: 'user@trymail.ru') do |user|
-  type = 'user' 
-  password = 'IAmUser!' 
-  password_confirmation= 'IAmUser!'
+ 
+user = User.find_or_create_by(login: 'user', email: 'user@trymail.ru', type: 'User') do |user|
+  user.password = 'IAmUser!'
+  user.password_confirmation = 'IAmUser!'
+  user.save!
 end
 
 category1 = Category.find_or_create_by(title: 'Mathematics')
