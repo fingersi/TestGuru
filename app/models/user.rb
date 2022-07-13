@@ -1,4 +1,9 @@
-class User < ApplicationRecord
+class User < ApplicationRecord 
+
+  def self.find_sti_class(type_name)
+    return User if type_name.to_s == 'User'
+    return Admin if type_name.to_s == 'Admin'
+  end
 
   devise :database_authenticatable,
          :registerable,
