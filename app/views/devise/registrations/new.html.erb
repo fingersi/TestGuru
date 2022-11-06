@@ -9,6 +9,13 @@
   </div>
 
   <div class="field">
+    <%= f.label :login %><br />
+    <%= f.email_field :login %>
+  </div>
+
+
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
