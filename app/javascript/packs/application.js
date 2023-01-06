@@ -10,6 +10,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 
+
 import 'jquery'
 import 'popper.js'
 import 'bootstrap'
@@ -20,8 +21,8 @@ import './check_password.js'
 import './progress_bar.js'
 import './validate_form.js'
 import './form_short.js'
-
-import '../stylesheets/application'
+import '../stylesheets/application.scss'
+import '../stylesheets/style.scss'
 
 
 

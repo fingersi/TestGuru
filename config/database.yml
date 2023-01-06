@@ -13,7 +13,6 @@ test:
   <<: *default
   database: test_testguru
 
-
 production:
   <<: *default
   database: testguru
