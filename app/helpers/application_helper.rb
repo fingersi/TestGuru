@@ -16,7 +16,7 @@ module ApplicationHelper
     end
   end
 
-  def flash_class1(level)
+  def flash_message_class(level)
     classes = {
       notice: 'alert alert-info',
       success: 'alert alert-success',

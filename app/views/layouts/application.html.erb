@@ -7,7 +7,10 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <%= render 'shared/nav'%>
+  <%= render 'shared/nav' %>
+
+  <%= render 'shared/errors'%>
+
 
   <body>
     <div class="container">
@@ -25,6 +28,4 @@
     <p><%= t('footer.part3', href: (link_to 'Thinknetica', "https://thinknetica.com/")).html_safe %> </p>
     <p>Copyright <%= current_year %></p>
   <footer>
-
-
 </html>
