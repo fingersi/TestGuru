@@ -37,6 +37,8 @@ ru:
   are_you_sure: 'Вы уверены?'
   gist_save: 'Вопрос про %{test}.'
   question: 'Вопрос'
+  feedback_link: 'Оставьте отзыв о работе проекта!'
+
 
 
   devise:
@@ -148,6 +150,17 @@ ru:
       answer:
         value: 'Ответ'
         correct: 'Правильность'
+
+  feedback:
+    show:
+      title: 'Форма обратной связи'
+      feedback_text: 'Напишите Ваш отзыв:'
+      submit: 'Отправить'
+    
+    feedback:
+      success: 'Ваша обратная связь принята.'
+      return_main_page: 'Вернуться на главную страницу' 
+
 
 
 

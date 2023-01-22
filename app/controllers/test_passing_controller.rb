@@ -34,7 +34,7 @@ class TestPassingController < ApplicationController
 
   def flash_message(saved_success)
     if saved_success
-      { notice: "#{t('.gist_saved')} #{view_context.link_to 'link', @gist&.link}"}
+      { notice: "#{t('.gist_saved')} #{view_context.link_to 'link', @gist&.link}" }
     else
       { alert: t('.gist_not_saved') }
     end

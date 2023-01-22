@@ -9,7 +9,8 @@ class User < ApplicationRecord
          :registerable,
          :recoverable,
          :rememberable,
-         :validatable
+         :validatable,
+         :confirmable
 
   has_many :test_passings
   has_many :tests, through: :test_passings

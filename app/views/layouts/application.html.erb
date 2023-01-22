@@ -23,9 +23,12 @@
   </body>
   <br>
   <footer>
-    <p><%= t('footer.part1') %> </p>
-    <p><%= t('footer.part2', github: github_url('fingersi')).html_safe  %>
-    <p><%= t('footer.part3', href: (link_to 'Thinknetica', "https://thinknetica.com/")).html_safe %> </p>
-    <p>Copyright <%= current_year %></p>
+    <p>
+      <p><%= link_to t('feedback_link'), feedback_form_path %></p>
+      <p><%= t('footer.part1') %> </p>
+      <p><%= t('footer.part2', github: github_url('fingersi')).html_safe  %>
+      <p><%= t('footer.part3', href: (link_to 'Thinknetica', "https://thinknetica.com/")).html_safe %> </p>
+      <p>Copyright <%= current_year %></p>
+    </p>
   <footer>
 </html>

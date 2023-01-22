@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     root to: 'admin/tests#index', as: :admin_root
   end
 
+  get 'feedback', to: 'feedback#show', as: :feedback_form
+  post 'feedback', to: 'feedback#feedback'
+
   devise_for :users, path: 'guru', path_names: { sign_in: :login, sign_out: :logout }, controllers: { sessions: "users/sessions" }
   resources :tests, only: :index do
     post 'start', on: :member

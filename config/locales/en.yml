@@ -26,6 +26,7 @@ en:
   are_you_sure: 'Are you sure?'
   gist_save: 'Question about %{test}.'
   question: 'Question'
+  feedback_link: 'Leave your feedback here!'
 
   menu:
     main: 'TestGuru'
@@ -131,5 +132,16 @@ en:
       answer:
         value: 'Answer'
         correct: 'Correct'
+
+  feedback:
+    show:
+      title: "Feedback form"
+      feedback_text: 'Writedown your feedback:'
+      submit: 'Submit'
+
+    feedback:
+      success: 'You feedback successfully sent.'
+      return_main_page: 'Return to main page' 
+
 
   
