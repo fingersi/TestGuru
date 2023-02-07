@@ -43,7 +43,7 @@ class TestPassing < ApplicationRecord
   private
 
   def before_save_set_first_question
-    self.current_question = test.questions.first
+    self.current_question = test.questions.first if test.questions.first.present?
   end
 
   def check_answers?(answer_ids)

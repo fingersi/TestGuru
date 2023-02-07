@@ -7,11 +7,9 @@ class Admin::TestsController < Admin::BaseController
   rescue_from ActiveRecord::InvalidForeignKey, with: :rescue_question_exists
 
   def index
-
   end
 
-  def show
-
+  def show 
   end
 
   def new
@@ -19,7 +17,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def edit
-
   end
 
   def create
@@ -49,8 +46,12 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def destroy
-    @test.destroy
-    redirect_to admin_tests_path, notice: 'Test was successfully destroyed.'
+    if @test.destroy
+      redirect_to admin_tests_path, notice: 'Test was successfully destroyed.'
+    else
+      flash.alert = 'Test has not been deleted. There are undeleted questions.'
+      render :show
+    end
   end
 
   private
@@ -60,7 +61,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def rescue_question_exists
-    render plain: 'Test has not been deleted. There are undeleted questions.'
+    render :show, alert: 'Test has not been deleted. There are undeleted questions or test_passings.'
   end
 
   def set_tests

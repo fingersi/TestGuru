@@ -5,4 +5,17 @@ class Question < ApplicationRecord
   belongs_to :test
 
   validates :body, presence: true
+
+  def self.answers?(questions)
+    return false if questions.empty?
+
+    questions.each do |question|
+      return false if question.answers.empty?
+    end
+    return true
+  end
+
+  def valid?
+    answers.present?
+  end
 end

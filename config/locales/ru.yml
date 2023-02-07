@@ -1,4 +1,23 @@
 ru:
+  controllers:
+    admin:
+      test_passing:
+        gist_saved: 'Вопрос сохранян по ссылке: '
+
+      test:
+        test_destroy_error: 'Тест не удален. Возможно остались не удаленные вопросы или прохождения тестов.'
+
+    test: 
+      start_error: 'Тест не завершен. Пожалуйста, напишите в службу поддержки.'
+
+    test_passing:
+      update:
+        no_answers: 'Выберете варианты ответа.'
+
+  test_passing:
+    update:
+      no_answers: 'Выберете варианты ответа.'
+
   helpers:
     submit:
       test:
@@ -84,11 +103,18 @@ ru:
     save:
       gist_saved: "Вопрос сохранен: "
       gist_not_saved: 'Вопрос не был сохранен.'
+    
+    update:
+      no_answers: 'Выберите варианты ответа.'
 
+    show:
+      submit: 'Отправить'
+      no_test_passing: 'Test_passing не найден.'
 
   admin:
     questions:
       show:
+        no_question: 'Question was not found.'
         title: 'Вопрос номер:'
         body: 'Текст вопроса'
         new_answer: 'Новый ответ'
@@ -129,6 +155,9 @@ ru:
         question: 'Вопрос'
         gist_hash: 'Gist'
         user: 'Пользователь'
+
+    question:
+      show: 'Вопрос не найден.'
 
   activerecord:
     attributes:

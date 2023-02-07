@@ -17,4 +17,20 @@ class Test < ApplicationRecord
   def self.find_order_by_category(category)
     Test.find_by_category(category).order('tests.title DESC').pluck(:title)
   end
+
+  def self.for_users
+    tests = []
+    Test.all.each do |test|
+      tests << test if test.valid?
+    end
+    tests
+  end
+
+  def valid?
+    return false unless questions.present?
+
+    return false unless Question.answers?(questions)
+
+    true
+  end
 end

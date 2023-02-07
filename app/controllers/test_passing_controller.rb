@@ -3,6 +3,8 @@ class TestPassingController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_test_passing_not_found
 
+  rescue_from ActionController::ParameterMissing, with: :rescue_no_answers_sent
+
   def show
   end
 
@@ -10,8 +12,7 @@ class TestPassingController < ApplicationController
   end
 
   def update
-    @test_passing.accept!(params[:answer_ids])
-
+    @test_passing.accept!(test_params)
     if @test_passing.completed?
       redirect_to result_test_passing_path(@test_passing)
     else
@@ -32,6 +33,11 @@ class TestPassingController < ApplicationController
 
   private
 
+  def rescue_no_answers_sent
+    flash.now[:alert] = t('.no_answers')
+    render :show
+  end
+
   def flash_message(saved_success)
     if saved_success
       { notice: "#{t('.gist_saved')} #{view_context.link_to 'link', @gist&.link}" }
@@ -41,7 +47,7 @@ class TestPassingController < ApplicationController
   end
 
   def rescue_test_passing_not_found
-    render plain: 'Test_passing was not found.'
+    redirect_to root_path, alert: t('.no_test_passing')
   end
 
   def find_test_passing
@@ -49,6 +55,6 @@ class TestPassingController < ApplicationController
   end
 
   def test_params
-    params.require(:test_passing).permit(:answer_ids)
+    params.require(:answer_ids)
   end
 end
