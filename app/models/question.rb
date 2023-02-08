@@ -15,7 +15,7 @@ class Question < ApplicationRecord
     return true
   end
 
-  def valid?
+  def fullfilled?
     answers.present?
   end
 end

@@ -38,7 +38,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def update_short
-    if @test.update(test_params)
+    if @test.update(test_params_short)
       redirect_to admin_tests_path, notice: 'Test was successfully updated.'
     else
       render :index
@@ -56,8 +56,8 @@ class Admin::TestsController < Admin::BaseController
 
   private
 
-  def rescue_test_not_found
-    render plain: 'Test was not found.'
+  def rescue_test_not_foundh
+    redirect_to admin_test_path, alert: 'Test was not found.'
   end
 
   def rescue_question_exists
@@ -74,5 +74,9 @@ class Admin::TestsController < Admin::BaseController
 
   def test_params
     params.require(:test).permit(:author_id, :level, :title, :category_id)
+  end
+
+  def test_params_short
+    params.require(:test).permit(:title)
   end
 end

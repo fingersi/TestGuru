@@ -21,12 +21,12 @@ class Test < ApplicationRecord
   def self.for_users
     tests = []
     Test.all.each do |test|
-      tests << test if test.valid?
+      tests << test if test.fullfilled?
     end
     tests
   end
 
-  def valid?
+  def fullfilled?
     return false unless questions.present?
 
     return false unless Question.answers?(questions)

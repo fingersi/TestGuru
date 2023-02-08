@@ -10,7 +10,7 @@ class TestsController < ApplicationController
   end
 
   def start
-    unless @test.valid?
+    unless @test.valid1?
       redirect_to tests_path, alert: t('.start_error')
       return
     end
