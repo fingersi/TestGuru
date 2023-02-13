@@ -14,6 +14,8 @@ class Test < ApplicationRecord
   validates :title, presence: true, uniqueness: { scope: :level }
   validates :level, numericality: { other_than: 0 }
 
+  before_destroy :destroy_associations
+
   def self.find_order_by_category(category)
     Test.find_by_category(category).order('tests.title DESC').pluck(:title)
   end
@@ -32,5 +34,12 @@ class Test < ApplicationRecord
     return false unless Question.answers?(questions)
 
     true
+  end
+
+  def destroy_associations
+    Test.transaction do 
+      test_passing.destroy_all
+      questions.destroy_all
+    end
   end
 end

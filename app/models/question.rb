@@ -12,7 +12,7 @@ class Question < ApplicationRecord
     questions.each do |question|
       return false if question.answers.empty?
     end
-    return true
+    true
   end
 
   def fullfilled?

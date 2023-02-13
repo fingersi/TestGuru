@@ -33,9 +33,7 @@ class TestPassing < ApplicationRecord
   end
 
   def accept!(answer_ids)
-    if check_answers?(answer_ids)
-      self.correct_questions += 1
-    end
+    self.correct_questions += 1 if check_answers?(answer_ids)
 
     save!
   end
