@@ -1,4 +1,23 @@
 ru:
+  controllers:
+    admin:
+      test_passing:
+        gist_saved: 'Вопрос сохранян по ссылке: '
+
+      test:
+        test_destroy_error: 'Тест не удален. Возможно остались не удаленные вопросы или прохождения тестов.'
+
+    test: 
+      start_error: 'Тест не завершен. Пожалуйста, напишите в службу поддержки.'
+
+    test_passing:
+      update:
+        no_answers: 'Выберете варианты ответа.'
+
+  test_passing:
+    update:
+      no_answers: 'Выберете варианты ответа.'
+
   helpers:
     submit:
       test:
@@ -26,16 +45,23 @@ ru:
         create: 'следующий'
         update: 'следующий'
 
+  un_valid: 'Не правильное значение'
   back: "Обратно"
   show: 'Показать'
   edit: 'Изменить'
+  cancel: 'Отменить'
   destroy: 'Удалить'
   start: 'Старт'
   next: 'Cледующией'
   are_you_sure: 'Вы уверены?'
   gist_save: 'Вопрос про %{test}.'
   question: 'Вопрос'
-
+  feedback_link: 'Оставьте отзыв о работе проекта!'
+  cannot_publish_no_question_or_answer: 'Нельзя опубликовать тест: У теста нет вопросов или ответов.'
+  test_updated: 'Тест успешно обновлен.'
+  test_destroyed: 'Тест успешно удален'
+  test_not_destroyed: 'Не удалось удалить тест.Обратесь в поддержку.'
+  test_was_not_found: 'Тест не был найден.'
 
   devise:
     confirmation:
@@ -60,6 +86,7 @@ ru:
   tests:
     index: 
       title: 'Тесты'
+      test_tile: 'Названия теста'
       actions: 'Действия'
     
     new:
@@ -80,11 +107,18 @@ ru:
     save:
       gist_saved: "Вопрос сохранен: "
       gist_not_saved: 'Вопрос не был сохранен.'
+    
+    update:
+      no_answers: 'Выберите варианты ответа.'
 
+    show:
+      submit: 'Отправить'
+      no_test_passing: 'Test_passing не найден.'
 
   admin:
     questions:
       show:
+        no_question: 'Question was not found.'
         title: 'Вопрос номер:'
         body: 'Текст вопроса'
         new_answer: 'Новый ответ'
@@ -94,9 +128,12 @@ ru:
         
     tests:
       index:
-        title: 'Тесты'
+        title: 'Название Теста'
         header: 'Тесты'
-        new_test: "Новый тест"
+        new_test: 'Новый тест'
+        published: 'Опубликован'
+        actions: 'Действия'
+
 
       show:
         title: "Тест %{test} и вопросы"
@@ -117,7 +154,11 @@ ru:
         title: 'Название теста'
 
       form:
-        create: 'Cоздать тест'
+        create: 'Сохранить'
+
+      update:
+        test_cannot_save: 'Тест не сохранен, проверьте отправляемые парметры, если вы побликуете тес проверьте наличие вопросов и ответов.'
+
 
     gists:
       index:
@@ -125,6 +166,9 @@ ru:
         question: 'Вопрос'
         gist_hash: 'Gist'
         user: 'Пользователь'
+
+    question:
+      show: 'Вопрос не найден.'
 
   activerecord:
     attributes:
@@ -146,6 +190,18 @@ ru:
       answer:
         value: 'Ответ'
         correct: 'Правильность'
+
+  feedback:
+    show:
+      title: 'Форма обратной связи'
+      feedback_text: 'Напишите Ваш отзыв:'
+      submit: 'Отправить'
+    
+    feedback:
+      success: 'Ваша обратная связь принята.'
+      return_main_page: 'Вернуться на главную страницу' 
+
+
 
 
 

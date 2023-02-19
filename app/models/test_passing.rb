@@ -33,9 +33,7 @@ class TestPassing < ApplicationRecord
   end
 
   def accept!(answer_ids)
-    if check_answers?(answer_ids)
-      self.correct_questions += 1
-    end
+    self.correct_questions += 1 if check_answers?(answer_ids)
 
     save!
   end
@@ -43,7 +41,7 @@ class TestPassing < ApplicationRecord
   private
 
   def before_save_set_first_question
-    self.current_question = test.questions.first
+    self.current_question = test.questions.first if test.questions.first.present?
   end
 
   def check_answers?(answer_ids)

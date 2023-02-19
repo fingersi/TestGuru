@@ -1,15 +1,19 @@
-class User < ApplicationRecord
+class User < ApplicationRecord 
 
   devise :database_authenticatable,
          :registerable,
          :recoverable,
          :rememberable,
-         :validatable
+         :validatable,
+         :confirmable
 
   has_many :test_passings
-  has_many :tests, through: :test_passings 
+  has_many :tests, through: :test_passings
   has_many :gists
-  
+
+  def create
+    self.type = 'User'
+  end
 
   def history(level)
     Test.joins(:users).where('tests.level = ? AND user_id = ?', level, id)

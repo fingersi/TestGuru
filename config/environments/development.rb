@@ -30,16 +30,30 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  config.serve_static_files = true
+
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.default_url_options = { host: 'http://185.151.147.69/', port: 80 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = {
+    address:              '',
+    port:                 25,
+    #domain:               '',
+    user_name:            '',
+    password:             '5ec5886f58a782bde14247dd5462088d',
+    #authentication:       'plain',
+    #enable_starttls_auto: true,
+    open_timeout:         15,
+    read_timeout:         15
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

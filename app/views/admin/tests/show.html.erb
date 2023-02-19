@@ -4,6 +4,8 @@
   <p><%= link_to t('.new_question'), new_admin_test_question_path(@test.id), class: "link-secondary" %> </p>
   <p><%= link_to t('.all_tests'), admin_tests_path, class: "link-secondary" %></p>
 
+  <p><%= link_to t('.edit'), edit_admin_test_path(@test), class: "link-secondary" %></p>
+
   <table class="table table-borderless">
     <thead>
       <tr class="col-12 col-md-4 content">

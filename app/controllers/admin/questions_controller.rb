@@ -51,7 +51,7 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def rescue_question_not_found
-    render plain: 'Question was not found.'
+    redirect_to root_path, alert: t('.no_question')
   end
 
   def question_params

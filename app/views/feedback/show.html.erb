@@ -1,0 +1,10 @@
+
+<h2> <%= t('.title') %> </h2>
+
+<%= form_with url: "/feedback", method: :post do |form| %>
+  <%= form.label :feedback, t('.feedback_text') %>
+  <%= form.text_field :feedback %>
+  <%= form.submit t('.submit') %>
+<% end %>
+
+<%= link_to t('.return_main_page'), root_path %>

@@ -2,7 +2,15 @@ en:
   controllers:
     admin:
       test_passing:
-        gist_saved: 'Question has beeb saved: '
+        gist_saved: 'Question has beeт saved to:'
+      test:
+        test_destroy_error: 'Test has not been deleted. There are undeleted questions or test_passings.'
+
+    test: 
+      start_error: 'Test is not valid. Please contact out techsupport.'
+
+    test_passing:
+      no_answers: 'Choose answer or answers.'
 
   helpers:
     submit:
@@ -16,14 +24,23 @@ en:
         category: 'Select Category'
         level: 'Level'
 
-  back: "Back"
+  un_valid: 'Un valid value'
+  back: 'Back'
   show: 'Show'
+  cancel: 'Cancel'
   edit: 'Update'
   destroy: 'Destroy'
   start: 'Start'
   are_you_sure: 'Are you sure?'
   gist_save: 'Question about %{test}.'
   question: 'Question'
+  feedback_link: 'Leave your feedback here!'
+  cannot_publish_no_question_or_answer: "Cannot publish test. Test doesn't have question or answers."
+  test_updated: 'Test was successfully updated.'
+  test_destroyed: 'Test was successfully destroyed.'
+  test_not_destroyed: 'Test has not been deleted. Ask support'
+  test_was_not_found: 'Test was not found'
+
 
   menu:
     main: 'TestGuru'
@@ -41,8 +58,9 @@ en:
 
   tests:
     index: 
-      title: 'Tests'
+      title: 'Tests111'
       actions: 'Actions'
+      published: 'Published'
   
   test_passing:
     show:
@@ -60,8 +78,20 @@ en:
       gist_saved: 'Question has been saved: '
       gist_not_saved: 'Question has not been saved'
 
+    update:
+      no_answers: 'Choose answer or answers.'
+
+    show:
+      submit: 'submit'
+      no_test_passing: 'Test_passing was not found.'
+  
+
+    
   admin:
     questions:
+      show:
+        no_question: 'Question was not found.'
+
       question: 
         show: 
           title: 'Вопрос номер:'
@@ -89,11 +119,18 @@ en:
         back: "Back"
 
       form:
-        create: 'Create Test'
+        create: 'Save'
 
       edit:
         title: 'Update test.'
-      
+
+      form_short:
+        create: 'Update'
+
+      update:
+        test_cannot_save: 'Test not saved, Check paramers, If you publish your test, check quеstions and answers'
+
+    
     gists:
       index:
         title: 'All created gists.'
@@ -105,7 +142,7 @@ en:
     answers:
       answer:
         are_you_sure: 'Are you sure?'
-
+      
   activerecord:
     attributes:
       user:
@@ -126,5 +163,16 @@ en:
       answer:
         value: 'Answer'
         correct: 'Correct'
+
+  feedback:
+    show:
+      title: "Feedback form"
+      feedback_text: 'Writedown your feedback:'
+      submit: 'Submit'
+
+    feedback:
+      success: 'You feedback successfully sent.'
+      return_main_page: 'Return to main page' 
+
 
   

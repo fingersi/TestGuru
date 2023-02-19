@@ -11,18 +11,23 @@ addEventListener('turbolinks:load', function(){
 
 function check_input(){
   var elements = document.getElementsByClassName('not_empty')
-  for (var i = 0; i < elements.length; i++ ){
+
+  for (var i = 0; i < elements.length; i++){
     if(isBlank(elements[i].value) === true ){
+      console.log('true')
       var message = document.createElement('p')
-      message.textContent = 'Un valid value.'
+      message.textContent = I18n.t('un_valid')
       message.classList.add('text-danger')
+      message.classList.add('for_warning_message')
       message.setAttribute('id', 'form_massage')
       message.dataset.parent = elements[i].dataset.id
       elements[i].parentNode.appendChild(message)
       } else {
-      var message = document.getElementById('form_massage')
+      console.log('false')
+      var message = document.getElementById('form_massage')     
       if(message != null && message.dataset.parent === elements[i].dataset.id){
         message.remove() 
+        hideButtons(false)
       }
     }
   }
@@ -30,4 +35,11 @@ function check_input(){
 
 function isBlank(str) {
   return (!str || /^\s*$/.test(str));
+}
+
+function hideButtons(status){
+  var buttons = document.getElementsByClassName('btn')
+  for (var i = 0; i < buttons.length; i++){
+    buttons[i].disabled = status 
+  }
 }
