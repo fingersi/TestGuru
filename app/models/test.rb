@@ -26,7 +26,7 @@ class Test < ApplicationRecord
   end
 
   def check_question
-    if published
+    if published && fullfilled?
 
       errors.add :fullfilled, :no_question_answers, message: I18n.t('.cannot_publish_no_question_or_answer')
       return false
