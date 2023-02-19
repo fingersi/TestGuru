@@ -8,9 +8,12 @@
 
 <table class="table table-borderless">
   <tr>
-    <th><%= t('.test_tile')%>
+    <th><%= t('.title')%>
       <%= octicon 'arrow-up', class: 'text-alert hide'%>
       <%= octicon 'arrow-down', class: 'text-alert hide'%>
+    </th>
+    <th>
+      <%= t('.published')%>
     </th>
     <th><%= t('.actions')%></th>
   </tr>
@@ -20,8 +23,11 @@
       <tr class="col-12 col-md-4 content">
         <td vertical-align="middle">
           <%= content_tag :span, test.title, class: 'test-title', data: { test_id: test.id } %>  
+          
           <%= render 'form_short', test: test %>
+
         </td>
+        <td> <%= content_tag :span, test.published, class: 'test-title', data: { test_id: test.id } %>  </td>
         <td><%= link_to t('show'), admin_test_path(test), class: "btn btn-light" %></td>
         <td><%= link_to t('edit'),
                         edit_admin_test_path(test),

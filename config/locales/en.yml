@@ -60,6 +60,7 @@ en:
     index: 
       title: 'Tests'
       actions: 'Actions'
+      published: 'Published'
   
   test_passing:
     show:

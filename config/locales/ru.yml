@@ -86,6 +86,7 @@ ru:
   tests:
     index: 
       title: 'Тесты'
+      test_tile: 'Названия теста'
       actions: 'Действия'
     
     new:
@@ -127,9 +128,12 @@ ru:
         
     tests:
       index:
-        title: 'Тесты'
+        title: 'Название Теста'
         header: 'Тесты'
-        new_test: "Новый тест"
+        new_test: 'Новый тест'
+        published: 'Опубликован'
+        actions: 'Действия'
+
 
       show:
         title: "Тест %{test} и вопросы"
