@@ -35,6 +35,12 @@ en:
   gist_save: 'Question about %{test}.'
   question: 'Question'
   feedback_link: 'Leave your feedback here!'
+  cannot_publish_no_question_or_answer: "Cannot publish test. Test doesn't have question or answers."
+  test_updated: 'Test was successfully updated.'
+  test_destroyed: 'Test was successfully destroyed.'
+  test_not_destroyed: 'Test has not been deleted. Ask support'
+  test_was_not_found: 'Test was not found'
+
 
   menu:
     main: 'TestGuru'
@@ -112,7 +118,7 @@ en:
         back: "Back"
 
       form:
-        create: 'Create Test'
+        create: 'Save'
 
       edit:
         title: 'Update test.'
@@ -120,7 +126,10 @@ en:
       form_short:
         create: 'Update'
 
-      
+      update:
+        test_cannot_save: 'Test not saved, Check paramers, If you publish your test, check quеstions and answers'
+
+    
     gists:
       index:
         title: 'All created gists.'

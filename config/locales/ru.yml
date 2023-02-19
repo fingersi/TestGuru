@@ -57,8 +57,11 @@ ru:
   gist_save: 'Вопрос про %{test}.'
   question: 'Вопрос'
   feedback_link: 'Оставьте отзыв о работе проекта!'
-
-
+  cannot_publish_no_question_or_answer: 'Нельзя опубликовать тест: У теста нет вопросов или ответов.'
+  test_updated: 'Тест успешно обновлен.'
+  test_destroyed: 'Тест успешно удален'
+  test_not_destroyed: 'Не удалось удалить тест.Обратесь в поддержку.'
+  test_was_not_found: 'Тест не был найден.'
 
   devise:
     confirmation:
@@ -147,7 +150,11 @@ ru:
         title: 'Название теста'
 
       form:
-        create: 'Cоздать тест'
+        create: 'Сохранить'
+
+      update:
+        test_cannot_save: 'Тест не сохранен, проверьте отправляемые парметры, если вы побликуете тес проверьте наличие вопросов и ответов.'
+
 
     gists:
       index:
@@ -189,6 +196,7 @@ ru:
     feedback:
       success: 'Ваша обратная связь принята.'
       return_main_page: 'Вернуться на главную страницу' 
+
 
 
 

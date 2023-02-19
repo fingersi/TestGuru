@@ -12,6 +12,10 @@
       <%= form.label :level %>
       <%= form.text_field :level, class: "form-control not_empty"  %>
     </p>
+    <p>
+      <%= form.label :published %>
+      <%= form.select :published, [['Published', true], ['Unpublished', false]], {class: "form-select"}  %>
+    </p>
     <br>
     <div class="actions">
       <%= form.submit t('.create'), class: "btn btn-light" %>

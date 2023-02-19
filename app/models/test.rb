@@ -13,6 +13,7 @@ class Test < ApplicationRecord
 
   validates :title, presence: true, uniqueness: { scope: :level }
   validates :level, numericality: { other_than: 0 }
+  validate :published, :check_question
 
   before_destroy :destroy_associations
 
@@ -21,11 +22,16 @@ class Test < ApplicationRecord
   end
 
   def self.for_users
-    tests = []
-    Test.all.each do |test|
-      tests << test if test.fullfilled?
+    Test.where(published: true)
+  end
+
+  def check_question
+    if published
+
+      errors.add :fullfilled, :no_question_answers, message: I18n.t('.cannot_publish_no_question_or_answer')
+      return false
     end
-    tests
+    true
   end
 
   def fullfilled?

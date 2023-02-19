@@ -25,8 +25,6 @@ function formHandler(testId){
     title.classList.add('hide')
     link.text = I18n.t('cancel')
   } else {
-
-
     title.classList.remove('hide')
     form.classList.add('hide')
     link.text = I18n.t('edit')
