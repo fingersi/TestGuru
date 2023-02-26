@@ -1,18 +1,20 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark flex-sm-nowrap flex-wrap">
-  <a class="navbar-brand" href= <%= root_path %>>Testguru</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <% if current_user&.admin? %> 
-            <a class="nav-link" href= <%=admin_tests_path%>><span class="sr-only">Admin panel</span></a>
-          <% end %>
-        </li>
-      </ul>
+  <div class="container">
+    <a class="navbar-brand" href= <%= root_path %>>Testguru</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <% if current_user&.admin? %> 
+              <a class="nav-link" href= <%=admin_tests_path%>><span class="sr-only">Admin panel</span></a>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <span class="navbar-text">
+        <b> <%= user_name %> | <%= log_in_out %> </b>
+      </span>
     </div>
-    <span class="navbar-text">
-      <b> <%= user_name %> | <%= log_in_out %> </b>
-    </span>
 </nav>

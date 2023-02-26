@@ -36,11 +36,4 @@ class Test < ApplicationRecord
 
     true
   end
-
-  def destroy_associations
-    Test.transaction do 
-      test_passing.destroy_all
-      questions.destroy_all
-    end
-  end
 end
