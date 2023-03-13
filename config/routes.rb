@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :badges
     get 'gists', to: 'gists#index'
     delete 'gists', to: 'gists#clear_gists'
     resources :tests do

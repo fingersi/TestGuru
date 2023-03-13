@@ -1,3 +1,5 @@
 class Badge < ApplicationRecord
-  belongs_to :user_id
+  has_many :users, through: :user_badges
+  has_many :user_badges
+
 end

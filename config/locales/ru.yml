@@ -116,6 +116,16 @@ ru:
       no_test_passing: 'Test_passing не найден.'
 
   admin:
+    badges:
+      index:
+        badges: 'Бейджи'
+        title: 'Название'
+        picture: 'Изображение'
+        condition: 'Условие'
+        new_badge: 'Создать новый бейдж'
+        
+
+
     questions:
       show:
         no_question: 'Question was not found.'

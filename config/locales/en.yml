@@ -88,6 +88,17 @@ en:
 
     
   admin:
+    badges:
+      index:
+        badges: 'Badges'
+        title: 'Title'
+        picture: 'picture path'
+        condition: 'Condiction'
+        new_badge: 'Create new badge'
+
+      new:
+
+
     questions:
       show:
         no_question: 'Question was not found.'

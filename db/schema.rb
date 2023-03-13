@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_26_163528) do
+ActiveRecord::Schema.define(version: 2023_03_06_184727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "achived_badges", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "badge_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["badge_id"], name: "index_achived_badges_on_badge_id"
+    t.index ["user_id"], name: "index_achived_badges_on_user_id"
+  end
 
   create_table "answers", force: :cascade do |t|
     t.string "value", null: false
@@ -29,6 +38,10 @@ ActiveRecord::Schema.define(version: 2023_02_26_163528) do
     t.string "picture_path", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "category", default: "none"
+    t.string "level", default: "none"
+    t.string "first_time", default: "none"
+    t.boolean "activated", default: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -112,6 +125,8 @@ ActiveRecord::Schema.define(version: 2023_02_26_163528) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "achived_badges", "badges"
+  add_foreign_key "achived_badges", "users"
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "tests"
   add_foreign_key "test_passings", "tests"

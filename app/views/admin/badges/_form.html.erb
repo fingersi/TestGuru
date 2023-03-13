@@ -1,0 +1,28 @@
+<div class="row">
+  <%= form_with model:[:admin, badge] do |form| %>
+    <p>
+      <%= form.label :title %>
+      <%= form.text_field :title, class: "form-control not_empty" %>
+    </p>
+    <p>
+      <%= form.label :category %>
+      <%= form.collection_select :category_id, Category.all, :id, :title, { prompt: true } , { class: "form-control not_empty" }  %>
+    </p> 
+    <p>
+      <%= form.label :level %>
+      <%= form.text_field :level, class: "form-control not_empty" %>
+    </p>
+    <p>
+      <%= form.label :first_time %>
+      <%= form.text_field :first_time, class: "form-control not_empty" %>
+    </p>
+    <p>
+      <%= form.label :activated %>
+      <%= form.select :activated, [['activated', true], ['diactivated', false]], {class: "form-select"}  %>
+    </p>
+    <br>
+    <div class="actions">
+      <%= form.submit t('.create'), class: "btn btn-light" %>
+    </div>
+  <% end %>
+</div>

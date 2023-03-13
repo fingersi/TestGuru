@@ -32,7 +32,7 @@ class Admin::QuestionsController < Admin::BaseController
     if @question.save
       redirect_to admin_question_path(@question)
     else
-      render :new
+      render :new, alert: 'Cannot save question.'
     end
   end
 
