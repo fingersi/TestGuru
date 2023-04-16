@@ -48,7 +48,7 @@ Rails.application.configure do
     port:                 25,
     #domain:               '',
     user_name:            '',
-    password:             '5ec5886f58a782bde14247dd5462088d',
+    password:             '',
     #authentication:       'plain',
     #enable_starttls_auto: true,
     open_timeout:         15,
@@ -57,6 +57,8 @@ Rails.application.configure do
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
+
+  config.assets.check_precompiled_asset = false
 
   # Raise exceptions for disallowed deprecations.
   config.active_support.disallowed_deprecation = :raise

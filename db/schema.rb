@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_06_184727) do
+ActiveRecord::Schema.define(version: 2023_04_05_191156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,13 +35,21 @@ ActiveRecord::Schema.define(version: 2023_03_06_184727) do
 
   create_table "badges", force: :cascade do |t|
     t.string "title", null: false
-    t.string "picture_path", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "category", default: "none"
-    t.string "level", default: "none"
-    t.string "first_time", default: "none"
+    t.boolean "category_condition", default: false
+    t.boolean "level_condition", default: false
+    t.integer "level", default: 0
+    t.boolean "first_time", default: false
     t.boolean "activated", default: false
+    t.bigint "image_id"
+    t.index ["image_id"], name: "index_badges_on_image_id"
+  end
+
+  create_table "badges_categories", id: false, force: :cascade do |t|
+    t.bigint "badge_id", null: false
+    t.bigint "category_id", null: false
+    t.index ["badge_id", "category_id"], name: "index_badges_categories_on_badge_id_and_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -58,6 +66,14 @@ ActiveRecord::Schema.define(version: 2023_03_06_184727) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_gists_on_question_id"
     t.index ["user_id"], name: "index_gists_on_user_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "title"
+    t.string "discription"
+    t.string "picture_path"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "questions", force: :cascade do |t|
@@ -128,6 +144,7 @@ ActiveRecord::Schema.define(version: 2023_03_06_184727) do
   add_foreign_key "achived_badges", "badges"
   add_foreign_key "achived_badges", "users"
   add_foreign_key "answers", "questions"
+  add_foreign_key "badges", "images"
   add_foreign_key "questions", "tests"
   add_foreign_key "test_passings", "tests"
   add_foreign_key "test_passings", "users"

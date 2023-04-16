@@ -5,11 +5,9 @@ class TestPassingController < ApplicationController
 
   rescue_from ActionController::ParameterMissing, with: :rescue_no_answers_sent
 
-  def show
-  end
+  def show; end
 
-  def result
-  end
+  def result; end
 
   def update
     @test_passing.accept!(test_params)

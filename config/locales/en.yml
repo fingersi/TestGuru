@@ -12,6 +12,7 @@ en:
     test_passing:
       no_answers: 'Choose answer or answers.'
 
+
   helpers:
     submit:
       test:
@@ -89,6 +90,14 @@ en:
     
   admin:
     badges:
+      new:
+        title: 'Badges'
+      show:
+        title: 'Badges'
+      create:
+        cannot_save_badge: 'Бадже не сохранился. Проверьте параметры'
+
+      
       index:
         badges: 'Badges'
         title: 'Title'
@@ -96,7 +105,18 @@ en:
         condition: 'Condiction'
         new_badge: 'Create new badge'
 
-      new:
+
+      edit:
+        title: "Название"
+
+      form:
+        title: "Название"
+        category: "Category"
+        level: "Level"
+        first_time: "at the first time"
+        activated: "Activated"
+        create: "Create"
+        image: 'Image'
 
 
     questions:

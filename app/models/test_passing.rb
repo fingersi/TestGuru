@@ -9,7 +9,11 @@ class TestPassing < ApplicationRecord
   SUCCESS_LEVEL = 85
 
   def completed?
-    current_question.nil?
+    if current_question.nil?
+      Badge.find_badge(self)
+      return true
+    end
+    false
   end
 
   def mark

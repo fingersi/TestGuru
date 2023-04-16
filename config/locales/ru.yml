@@ -17,6 +17,8 @@ ru:
   test_passing:
     update:
       no_answers: 'Выберете варианты ответа.'
+  
+
 
   helpers:
     submit:
@@ -117,12 +119,31 @@ ru:
 
   admin:
     badges:
+      new:
+        title: 'Бейджи'
+      show:
+        title: 'Бейджи'
+      create:
+        cannot_save_badge: 'Бадже не сохранился. Проверьте параметры'
+  
       index:
         badges: 'Бейджи'
         title: 'Название'
         picture: 'Изображение'
         condition: 'Условие'
         new_badge: 'Создать новый бейдж'
+
+      edit:
+        title: "Создать Бейдж"
+   
+      form:
+        title: "Название"
+        category: "Категория"
+        level: "Уровень"
+        first_time: "С первого раза"
+        activated: "Активирован"
+        create: "Создать"
+        image: "Изображение"
         
 
 
