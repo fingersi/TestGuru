@@ -85,6 +85,21 @@ en:
     show:
       submit: 'submit'
       no_test_passing: 'Test_passing was not found.'
+
+  profile:
+    show:
+      your_badges: 'Your badges'
+    
+    update:
+      user_updated: 'User updated'
+
+    form:
+      login: 'Login'
+      email: 'Email'
+      first_name: 'First name'
+      last_name: 'Last name'
+      create: 'Submit'
+
   
 
     

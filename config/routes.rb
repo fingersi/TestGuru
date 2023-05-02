@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get 'feedback', to: 'feedback#show', as: :feedback_form
   post 'feedback', to: 'feedback#feedback'
 
+  get '/profile/:id', to: 'profile#show', as: :profile
+  patch '/profile/:id', to: 'profile#update', as: :profile_update
+
   devise_for :users, path: 'guru', path_names: { sign_in: :login, sign_out: :logout }, controllers: { sessions: "users/sessions" }
   resources :tests, only: :index do
     post 'start', on: :member

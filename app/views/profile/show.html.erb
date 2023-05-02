@@ -1,0 +1,20 @@
+<%= render 'form' %>
+<p>
+  <h2>
+  <%= t('.your_badges') %>
+  </h2>
+</p>
+<p>
+  <% @user_badges.each do |ub|%>
+    <tr class="col-12 col-md-4 content">
+      <%= label_tag 'Badge'%>
+      <td  vertical-align="middle">
+        <%= content_tag :span, ub.badge.title, class: 'badge-title' %>  
+      </td>
+      <td>
+        <%= image_tag ub.badge.image.picture_path, alt: ub.badge.image.discription %>
+      </td>
+    </tr>
+  <% end %>
+</p>
+

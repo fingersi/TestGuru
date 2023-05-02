@@ -64,6 +64,10 @@ class Badge < ApplicationRecord
     first_time ? 'first_time: true ' : 'first_time: false '
   end
 
+  def picture_path
+    image&.picture_path
+  end
+
   def condition_value
     return categores if category_condition
 

@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   skip_before_action :verify_authenticity_token
 
-
   private
 
   def default_url_options
