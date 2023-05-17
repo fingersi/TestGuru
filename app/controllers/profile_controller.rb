@@ -3,7 +3,7 @@ class ProfileController < ApplicationController
   before_action :find_user, only: %i[show update]
 
   def show
-    @user_badges = UserBadge.where({ user_id: user_params[:id] })
+    @user_badges = TestPassing.where('user_id = :user and badge_id > 0', { user: user_params[:id] })
   end
 
   def update

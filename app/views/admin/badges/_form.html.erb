@@ -5,6 +5,10 @@
       <%= form.text_field :title, class: "form-control not_empty" %>
     </p>
     <p>
+      <%= form.label t('.category_condition') %>
+      <%= form.select :category_condition, [['activated', true], ['diactivated', false]], {class: "form-select"}  %>
+    </p>
+    <p>
       <%= form.label t('.category') %>
       <%= form.collection_select :category_ids, Category.all, :id, :title, { prompt: true } , { class: "form-control not_empty" }  %>
     </p> 
@@ -13,16 +17,16 @@
       <%= form.collection_select :image_id, Image.all, :id, :title, { prompt: true } , { class: "form-control not_empty" }  %>
     </p> 
     <p>
+      <%= form.label t('.level_condition') %>
+      <%= form.select :level_condition, [['activated', true], ['diactivated', false]], {class: "form-select"}  %>
+    </p>
+    <p>
       <%= form.label t('.level') %>
       <%= form.text_field :level, class: "form-control not_empty" %>
     </p>
     <p>
       <%= form.label t('.first_time') %>
-      <%= form.text_field :first_time, class: "form-control not_empty" %>
-    </p>
-    <p>
-      <%= form.label t('.activated') %>
-      <%= form.select :activated, [['activated', true], ['diactivated', false]], {class: "form-select"}  %>
+      <%= form.select :first_time, [['activated', true], ['diactivated', false]], {class: "form-select"}  %>
     </p>
     <br>
     <div class="actions">

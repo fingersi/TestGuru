@@ -64,6 +64,7 @@ ru:
   test_destroyed: 'Тест успешно удален'
   test_not_destroyed: 'Не удалось удалить тест.Обратесь в поддержку.'
   test_was_not_found: 'Тест не был найден.'
+  earned_badges: "Вы получили Байджи."
 
   devise:
     confirmation:
@@ -139,11 +140,14 @@ ru:
       form:
         title: "Название"
         category: "Категория"
+        category_condition: "Получение байджа по категории"
         level: "Уровень"
+        level_condition: "Получение бейджа по уровню теста"
         first_time: "С первого раза"
         activated: "Активирован"
         create: "Создать"
         image: "Изображение"
+        
         
 
 
