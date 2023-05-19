@@ -3,7 +3,8 @@ class ProfileController < ApplicationController
   before_action :find_user, only: %i[show update]
 
   def show
-    @user_badges = TestPassing.where('user_id = :user and badge_id > 0', { user: user_params[:id] })
+    @user_badges = Badge.joins(:test_passings).where({ test_passings: { user: current_user.id } })
+    @badges = Badge.where({activated: true})
   end
 
   def update
@@ -14,6 +15,7 @@ class ProfileController < ApplicationController
       render :show, status: :unprocessable_entity
     end
   end
+
 
   private
 

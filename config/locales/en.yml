@@ -89,6 +89,7 @@ en:
   profile:
     show:
       your_badges: 'Your badges'
+      all_badges: 'All Badges'
     
     update:
       user_updated: 'User updated'
@@ -100,9 +101,6 @@ en:
       last_name: 'Last name'
       create: 'Submit'
 
-  
-
-    
   admin:
     badges:
       new:
