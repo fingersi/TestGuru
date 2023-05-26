@@ -5,8 +5,10 @@ class Badge < ApplicationRecord
   belongs_to :image, optional: true
   has_and_belongs_to_many :test_passings
 
+  scope :all_activated, -> { where(activated: true) }
+
   def self.find_badge(test_passing)
-    Badge.where({ activated: true }).each do |badge|
+    Badge.all_activated.each do |badge|
       next unless badge.check_badge_condition(test_passing)
 
       test_passing.badges << badge
@@ -34,32 +36,6 @@ class Badge < ApplicationRecord
       result = category == test_category
     end
     result
-  end
-
-  def condition_view(admin = false)
-    result = ''
-    result += category_view if category_condition || admin
-    result += level_view if level_condition || admin
-    result += first_time_view if first_time || admin
-    result
-  end
-
-  def category_view
-    result = ''
-    result += 'category: ' if categories.present?
-    categories.each do |cat|
-      result += "#{cat.title} "
-    end
-    result += ' '
-    result
-  end
-
-  def level_view
-    "level: #{level} "
-  end
-
-  def first_time_view
-    first_time ? 'first_time: true ' : 'first_time: false '
   end
 
   def picture_path

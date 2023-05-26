@@ -4,7 +4,7 @@ class ProfileController < ApplicationController
 
   def show
     @user_badges = Badge.joins(:test_passings).where({ test_passings: { user: current_user.id } })
-    @badges = Badge.where({activated: true})
+    @badges = Badge.all_activated
   end
 
   def update
@@ -15,7 +15,6 @@ class ProfileController < ApplicationController
       render :show, status: :unprocessable_entity
     end
   end
-
 
   private
 

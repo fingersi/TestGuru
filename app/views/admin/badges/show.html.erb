@@ -16,12 +16,10 @@
         <th><%= t('.activated') %></th>
       </tr>
     </thead>
-
-    <td><%= @badge.category_view %> </td>
+    <td><%= condition_view(@badge, true) %> </td>
     <td><%= @badge.level %> </td>
     <td><%= @badge.first_time %> </td>
     <td><%= @badge.activated %> </td>
-
   </table>
 
   <p> </p>

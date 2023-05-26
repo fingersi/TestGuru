@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_24_185057) do
+ActiveRecord::Schema.define(version: 2023_05_17_051821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,13 +26,13 @@ ActiveRecord::Schema.define(version: 2023_05_24_185057) do
 
   create_table "badges", force: :cascade do |t|
     t.string "title", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.boolean "category_condition", default: false
     t.boolean "level_condition", default: false
-    t.integer "level", default: 0
+    t.integer "level"
     t.boolean "first_time", default: false
     t.boolean "activated", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.bigint "image_id"
     t.index ["image_id"], name: "index_badges_on_image_id"
   end
@@ -89,8 +89,6 @@ ActiveRecord::Schema.define(version: 2023_05_24_185057) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "current_question_id"
     t.integer "correct_questions", default: 0
-    t.bigint "badge_id"
-    t.index ["badge_id"], name: "index_test_passings_on_badge_id"
     t.index ["current_question_id"], name: "index_test_passings_on_current_question_id"
     t.index ["test_id"], name: "index_test_passings_on_test_id"
     t.index ["user_id"], name: "index_test_passings_on_user_id"
@@ -134,7 +132,6 @@ ActiveRecord::Schema.define(version: 2023_05_24_185057) do
   add_foreign_key "answers", "questions"
   add_foreign_key "badges", "images"
   add_foreign_key "questions", "tests"
-  add_foreign_key "test_passings", "badges"
   add_foreign_key "test_passings", "tests"
   add_foreign_key "test_passings", "users"
   add_foreign_key "tests", "categories"

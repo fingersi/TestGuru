@@ -32,7 +32,7 @@
         <%= image_tag badge.image.picture_path , size: '75', class: 'badge-title' %>  
       </td>
       <td>
-        <%= content_tag :span, badge.condition_view, class: 'badge-title' %>  
+        <%= content_tag :span, user_condition_view(badge), class: 'badge-title' %>  
       </td>
     <% end %>
   </table>
