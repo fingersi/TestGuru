@@ -11,7 +11,7 @@ class TestPassing < ApplicationRecord
 
   def completed?
     if current_question.nil?
-      Badge.find_badge(self) if successfull?
+      BadgeFinder.new(self).find_badge if successfull?
       return true
     end
     false

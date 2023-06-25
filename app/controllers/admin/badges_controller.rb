@@ -35,14 +35,7 @@ class Admin::BadgesController < ApplicationController
   private
 
   def badge_params
-    params.require(:badge).permit(:title,
-                                  :categories,
-                                  :category_ids,
-                                  :level,
-                                  :published,
-                                  :activated,
-                                  :first_time,
-                                  :image_id)
+    params.require(:badge).permit(Badge.attribute_names + Badge.reflect_on_all_associations.map { |sym| sym.name.to_s })
   end
 
   def set_badge

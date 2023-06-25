@@ -1,9 +1,9 @@
 module Admin::BadgesHelper
   def condition_view(badge, admin = false)
     result = ''
-    result += category_view(badge) if badge.category_condition || admin
-    result += level_view(badge) if badge.level_condition || admin
-    result += first_time_view(badge) if badge.first_time || admin
+    result += category_view(badge) if badge.categories.present?|| admin
+    result += level_view(badge) if badge.level.present? || admin
+    result += first_time_view(badge) if badge.first_time.present? || admin
     result
   end
 

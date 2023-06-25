@@ -39,6 +39,6 @@ class ProfileController < ApplicationController
   end
 
   def user_form_params
-    params.require(:user).permit(:login, :email, :first_name, :last_name)
+    params.require(:user).permit!
   end
 end
