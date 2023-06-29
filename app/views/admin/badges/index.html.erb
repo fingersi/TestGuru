@@ -17,12 +17,17 @@
         <%= content_tag :span, badge.title, class: 'badge-title' %>  
       </td>
       <td>
-        <%= content_tag :span, badge.image&.picture_path , class: 'badge-title' unless badge.image.nil? %>  
+        <%= content_tag :span, badge&.picture_path , class: 'badge-title' unless badge.picture_path.nil? %>  
       </td>
       <td>
-        <%= content_tag :span, condition_view(badge, true), class: 'badge-title' %>  
+        <%= content_tag :span, condition_view(badge), class: 'badge-title' %>  
       </td>
-       <td><%= link_to t('show'), admin_badge_path(badge), class: "btn btn-light" %></td>
+      <td>
+        <%= link_to t('show'), admin_badge_path(badge), class: "btn btn-light" %>
+      </td>
+      <td>
+        <%= link_to t('update'), edit_admin_badge_path(badge), class: "btn btn-light" %>
+      </td>
     </tr>
   <% end %>
 </table>

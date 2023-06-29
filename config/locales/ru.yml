@@ -155,11 +155,8 @@ ru:
    
       form:
         title: "Название"
-        category: "Категория"
-        category_condition: "Получение байджа по категории"
-        level: "Уровень"
-        level_condition: "Получение бейджа по уровню теста"
-        first_time: "С первого раза"
+        condition: "Условие"
+        value: "Значение"
         activated: "Активирован"
         create: "Создать"
         image: "Изображение"

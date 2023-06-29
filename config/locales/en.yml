@@ -32,6 +32,7 @@ en:
   edit: 'Update'
   destroy: 'Destroy'
   start: 'Start'
+  update: "Update"
   are_you_sure: 'Are you sure?'
   gist_save: 'Question about %{test}.'
   question: 'Question'
@@ -117,18 +118,16 @@ en:
         picture: 'picture path'
         condition: 'Condiction'
         new_badge: 'Create new badge'
+        value: 'Value'
 
 
       edit:
-        title: "Название"
+        title: "Title"
 
       form:
-        title: "Название"
-        category: "Category"
-        category_condition: "Get badge by category condition"
-        level: "Level"
-        level_condition: "Get badge by level condition"
-        first_time: "at the first time"
+        title: "Title"
+        condition: "Condition"
+        value: "Value"
         activated: "Activated"
         create: "Create"
         image: 'Image'

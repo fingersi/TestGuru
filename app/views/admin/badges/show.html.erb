@@ -5,20 +5,16 @@
 
   <p><%= link_to t('.edit'), edit_admin_badge_path(@badge), class: "link-secondary" %></p>
 
-  <img src= <%= path_to_image @badge.image.picture_path unless @badge.image.nil?  %> alt= "<%= @badge.image.discription unless @badge.image.nil? %>" >
+  <img src= <%= path_to_image @badge.picture_path unless @badge.picture_path.nil?  %> alt= "<%= @badge.title  %>" >
 
   <table class="table table-borderless">
     <thead>
       <tr class="col-12 col-md-4 content">
-        <th><%= t('.category') %></th>
-        <th><%= t('.level') %></th>
-        <th><%= t('.first_time') %> </th>
+        <th><%= t('.condition') %></th>
         <th><%= t('.activated') %></th>
       </tr>
     </thead>
-    <td><%= condition_view(@badge, true) %> </td>
-    <td><%= @badge.level %> </td>
-    <td><%= @badge.first_time %> </td>
+    <td><%= condition_view(@badge) %> </td>
     <td><%= @badge.activated %> </td>
   </table>
 </div>

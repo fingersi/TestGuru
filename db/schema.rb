@@ -26,19 +26,12 @@ ActiveRecord::Schema.define(version: 2023_05_17_051821) do
 
   create_table "badges", force: :cascade do |t|
     t.string "title", null: false
-    t.integer "level"
-    t.boolean "first_time", default: false
     t.boolean "activated", default: false
+    t.string "picture_path"
+    t.string "condition"
+    t.string "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "image_id"
-    t.index ["image_id"], name: "index_badges_on_image_id"
-  end
-
-  create_table "badges_categories", id: false, force: :cascade do |t|
-    t.bigint "badge_id", null: false
-    t.bigint "category_id", null: false
-    t.index ["badge_id", "category_id"], name: "index_badges_categories_on_badge_id_and_category_id"
   end
 
   create_table "badges_test_passings", id: false, force: :cascade do |t|
@@ -61,14 +54,6 @@ ActiveRecord::Schema.define(version: 2023_05_17_051821) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_gists_on_question_id"
     t.index ["user_id"], name: "index_gists_on_user_id"
-  end
-
-  create_table "images", force: :cascade do |t|
-    t.string "title"
-    t.string "discription"
-    t.string "picture_path"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "questions", force: :cascade do |t|
@@ -128,7 +113,6 @@ ActiveRecord::Schema.define(version: 2023_05_17_051821) do
   end
 
   add_foreign_key "answers", "questions"
-  add_foreign_key "badges", "images"
   add_foreign_key "questions", "tests"
   add_foreign_key "test_passings", "tests"
   add_foreign_key "test_passings", "users"
