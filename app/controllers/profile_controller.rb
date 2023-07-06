@@ -3,7 +3,7 @@ class ProfileController < ApplicationController
   before_action :find_user, only: %i[show update]
 
   def show
-    @user_badges = Badge.joins(:test_passings).where({ test_passings: { user: current_user.id } })
+    @user_badges = current_user.badges
     @badges = Badge.all_activated
   end
 

@@ -34,7 +34,9 @@ class TestPassing < ApplicationRecord
   end
 
   def successfull?
-    mark >= SUCCESS_LEVEL
+    return false unless mark >= SUCCESS_LEVEL
+
+    self.successfull = true
   end
 
   def accept!(answer_ids)
@@ -58,6 +60,6 @@ class TestPassing < ApplicationRecord
   end
 
   def before_update_next_question
-    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first unless badges.present? 
+    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first
   end
 end

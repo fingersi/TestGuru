@@ -11,18 +11,14 @@ class BadgeValidator < ActiveModel::Validator
   end
 
   def category_validation(record)
-    unless i?(record.value)
-      record.errors.add(:value, "If Condition = 'condition', value shoud be integer.")
+    if record.value
+      record.errors.add(:value, "If Condition = 'condition', value should be set.")
 
       return
     end
 
-    return if Category.where(id: record.value.to_i).empty?
+    return if Category.where(title: record.value).empty?
 
     record.errors.add(:value, "If Badge Condition: 'category', Category with id: #{record.value} should exist.")
-  end
-
-  def i?(str)
-    /\A[-+]?\d+\z/.match(str) ? true : false
   end
 end

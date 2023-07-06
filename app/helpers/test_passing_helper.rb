@@ -8,14 +8,9 @@ module TestPassingHelper
   end
 
   def earned_badge(test_passing)
-    result = ''
-    if test_passing.badges.present?
-      result += "<h3> #{t('earned_badges')} </h3>"
-      test_passing.badges.each do |badge|
-        result += "<td  vertical-align='middle'>#{content_tag :span, badge.title, class: 'badge-title'}</td>
-                  <td>#{image_tag badge.picture_path, alt: badge.title, size: 150}</td>"
-      end
-    end
-    result
+    test_passing.badges.map do |badge|
+      "<td  vertical-align='middle'>#{content_tag :span, badge.title, class: 'badge-title'}</td>
+      <td>#{image_tag badge.picture_path, alt: badge.title, size: 150}</td>"
+    end.unshift("<h3> #{t('earned_badges')} </h3>").join(' ')
   end
 end
