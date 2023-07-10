@@ -10,11 +10,16 @@ class TestPassing < ApplicationRecord
   SUCCESS_LEVEL = 85
 
   def completed?
-    if current_question.nil?
-      BadgeFinder.new(self).find_badge if successfull?
-      return true
-    end
+    return true if current_question.nil? && successfull?
+
     false
+  end
+
+  def after_answers_update
+    return unless completed?
+
+    self.successfull = true
+    BadgeFinder.new(self).find_badge 
   end
 
   def mark
@@ -60,6 +65,6 @@ class TestPassing < ApplicationRecord
   end
 
   def before_update_next_question
-    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first
+    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first unless successfull
   end
 end

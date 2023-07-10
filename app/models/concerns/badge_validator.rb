@@ -11,13 +11,13 @@ class BadgeValidator < ActiveModel::Validator
   end
 
   def category_validation(record)
-    if record.value
+    if record.value.empty?
       record.errors.add(:value, "If Condition = 'condition', value should be set.")
 
       return
     end
 
-    return if Category.where(title: record.value).empty?
+    return unless Category.where(title: record.value).empty?
 
     record.errors.add(:value, "If Badge Condition: 'category', Category with id: #{record.value} should exist.")
   end

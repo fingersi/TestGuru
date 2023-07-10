@@ -36,11 +36,15 @@ class BadgeFinder
   end
 
   def find_testpassing(tests)
-    return unless tests.present?
+    return false unless tests.present?
 
-    tests.each do |test|
-      return false if TestPassing.where({ test_id: test.id, user_id: @tp.user_id, successfull: true }).empty?
-    end
-    true
+    user_tests = TestPassing.where({ test_id: tests, user_id: @tp.user_id, successfull: true }).pluck(:test_id).uniq
+    included_in?(tests.pluck(:id), user_tests)
+  end
+
+  def included_in?(src, target)
+    return true if src.each { |i| break unless target.to_a.include?(i) }
+
+    false
   end
 end
