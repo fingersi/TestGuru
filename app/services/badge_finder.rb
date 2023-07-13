@@ -25,26 +25,24 @@ class BadgeFinder
   def level_check
     return false unless @badge.value.to_i.present?
 
-    find_testpassing(Test.where(level: @badge.value.to_i))
+    target_ids = Test.where(level: @badge.value.to_i).sort.pluck(:id)
+    user_ids = TestPassing.where({ test_id: target_ids, user_id: @tp.user.id, successfull: true }).distinct.sort.pluck(:test_id)
+    target_ids == user_ids
   end
 
   def category_check
     category = Category.where(title: @badge.value)
     return false unless category.present?
 
-    find_testpassing(Test.where(category: category))
+    target_ids = Test.where(category: category).sort.pluck(:id)
+    user_ids = TestPassing.where({ test_id: target_ids, user_id: @tp.user.id, successfull: true }).distinct.sort.pluck(:test_id)
+    target_ids == user_ids
   end
 
   def find_testpassing(tests)
     return false unless tests.present?
 
     user_tests = TestPassing.where({ test_id: tests, user_id: @tp.user_id, successfull: true }).pluck(:test_id).uniq
-    included_in?(tests.pluck(:id), user_tests)
-  end
-
-  def included_in?(src, target)
-    return true if src.each { |i| break unless target.to_a.include?(i) }
-
-    false
+    tests.pluck(:id) == user_tests
   end
 end

@@ -10,16 +10,13 @@ class TestPassing < ApplicationRecord
   SUCCESS_LEVEL = 85
 
   def completed?
-    return true if current_question.nil? && successfull?
+    return true if current_question.nil?
 
     false
   end
 
-  def after_answers_update
-    return unless completed?
-
-    self.successfull = true
-    BadgeFinder.new(self).find_badge 
+  def issue_badge
+    BadgeFinder.new(self).find_badge
   end
 
   def mark

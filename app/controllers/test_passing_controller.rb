@@ -11,7 +11,8 @@ class TestPassingController < ApplicationController
 
   def update
     @test_passing.accept!(test_params)
-    if @test_passing.after_answers_update
+    if @test_passing.completed?
+      issue_badge if successfull?
       redirect_to result_test_passing_path(@test_passing)
     else
       render :show
