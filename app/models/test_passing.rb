@@ -2,6 +2,7 @@ class TestPassing < ApplicationRecord
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
+  has_and_belongs_to_many :badges
 
   before_create :before_save_set_first_question
   before_update :before_update_next_question
@@ -9,7 +10,18 @@ class TestPassing < ApplicationRecord
   SUCCESS_LEVEL = 85
 
   def completed?
-    current_question.nil?
+    return true if current_question.nil?
+
+    false
+  end
+
+  def issue_badge
+    BadgeFinder.new(self).find_badge
+  end
+
+  def tag_successfull
+    self.successfull = true if successfull?
+    save!
   end
 
   def mark
@@ -53,6 +65,6 @@ class TestPassing < ApplicationRecord
   end
 
   def before_update_next_question
-    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first
+    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first unless successfull
   end
 end

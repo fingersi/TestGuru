@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :test_passings
   has_many :tests, through: :test_passings
   has_many :gists
+  has_many :badges, through: :test_passings
 
   def create
     self.type = 'User'

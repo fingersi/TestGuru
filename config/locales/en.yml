@@ -12,6 +12,7 @@ en:
     test_passing:
       no_answers: 'Choose answer or answers.'
 
+
   helpers:
     submit:
       test:
@@ -31,6 +32,7 @@ en:
   edit: 'Update'
   destroy: 'Destroy'
   start: 'Start'
+  update: "Update"
   are_you_sure: 'Are you sure?'
   gist_save: 'Question about %{test}.'
   question: 'Question'
@@ -40,7 +42,7 @@ en:
   test_destroyed: 'Test was successfully destroyed.'
   test_not_destroyed: 'Test has not been deleted. Ask support'
   test_was_not_found: 'Test was not found'
-
+  earned_badges: "You earned badges."
 
   menu:
     main: 'TestGuru'
@@ -58,7 +60,7 @@ en:
 
   tests:
     index: 
-      title: 'Tests111'
+      title: 'Tests'
       actions: 'Actions'
       published: 'Published'
   
@@ -84,10 +86,53 @@ en:
     show:
       submit: 'submit'
       no_test_passing: 'Test_passing was not found.'
-  
 
+  profile:
+    show:
+      your_badges: 'Your badges'
+      all_badges: 'All Badges'
     
+    update:
+      user_updated: 'User updated'
+
+    form:
+      login: 'Login'
+      email: 'Email'
+      first_name: 'First name'
+      last_name: 'Last name'
+      create: 'Submit'
+
   admin:
+    badges:
+      new:
+        title: 'Badges'
+      show:
+        title: 'Badges'
+      create:
+        cannot_save_badge: 'Бадже не сохранился. Проверьте параметры'
+
+      
+      index:
+        badges: 'Badges'
+        title: 'Title'
+        picture: 'picture path'
+        condition: 'Condiction'
+        new_badge: 'Create new badge'
+        value: 'Value'
+
+
+      edit:
+        title: "Title"
+
+      form:
+        title: "Title"
+        condition: "Condition"
+        value: "Value"
+        activated: "Activated"
+        create: "Create"
+        image: 'Image'
+
+
     questions:
       show:
         no_question: 'Question was not found.'

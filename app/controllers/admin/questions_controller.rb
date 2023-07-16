@@ -32,6 +32,7 @@ class Admin::QuestionsController < Admin::BaseController
     if @question.save
       redirect_to admin_question_path(@question)
     else
+      flash.alert = t('Cannot_save_badge')
       render :new
     end
   end

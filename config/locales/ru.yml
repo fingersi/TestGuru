@@ -17,6 +17,8 @@ ru:
   test_passing:
     update:
       no_answers: 'Выберете варианты ответа.'
+  
+
 
   helpers:
     submit:
@@ -62,6 +64,7 @@ ru:
   test_destroyed: 'Тест успешно удален'
   test_not_destroyed: 'Не удалось удалить тест.Обратесь в поддержку.'
   test_was_not_found: 'Тест не был найден.'
+  earned_badges: "Вы получили Байджи."
 
   devise:
     confirmation:
@@ -115,7 +118,49 @@ ru:
       submit: 'Отправить'
       no_test_passing: 'Test_passing не найден.'
 
+    
+  profile:
+    show:
+      your_badges: 'Заработанные байджи'
+      all_badges: 'Все бейджи'
+    
+    update:
+      user_updated: 'Пользователь успешно обновлен'
+
+    form:
+      login: 'Login'
+      email: 'email'
+      first_name: 'Имя'
+      last_name: 'Фамилия'
+      create: 'Отправить'
+
   admin:
+    badges:
+      new:
+        title: 'Бейджи'
+      show:
+        title: 'Бейджи'
+      create:
+        cannot_save_badge: 'Бадже не сохранился. Проверьте параметры'
+  
+      index:
+        badges: 'Бейджи'
+        title: 'Название'
+        picture: 'Изображение'
+        condition: 'Условие'
+        new_badge: 'Создать новый бейдж'
+
+      edit:
+        title: "Создать Бейдж"
+   
+      form:
+        title: "Название"
+        condition: "Условие"
+        value: "Значение"
+        activated: "Активирован"
+        create: "Создать"
+        image: "Изображение"
+
     questions:
       show:
         no_question: 'Question was not found.'

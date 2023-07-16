@@ -1,0 +1,20 @@
+<div>
+  <h1><%= t('.title', badge: @badge.title) %></h1>
+
+  <p><%= link_to t('.all_badges'), admin_badges_path, class: "link-secondary" %></p>
+
+  <p><%= link_to t('.edit'), edit_admin_badge_path(@badge), class: "link-secondary" %></p>
+
+  <img src= <%= path_to_image @badge.picture_path unless @badge.picture_path.nil?  %> alt= "<%= @badge.title  %>" >
+
+  <table class="table table-borderless">
+    <thead>
+      <tr class="col-12 col-md-4 content">
+        <th><%= t('.condition') %></th>
+        <th><%= t('.activated') %></th>
+      </tr>
+    </thead>
+    <td><%= condition_view(@badge) %> </td>
+    <td><%= @badge.activated %> </td>
+  </table>
+</div>

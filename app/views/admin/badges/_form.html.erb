@@ -1,0 +1,26 @@
+<div class="row">
+  <%= form_with model:[:admin, @badge] do |form| %>
+    <p>
+      <%= form.label t('.title') %>
+      <%= form.text_field :title, class: "form-control not_empty" %>
+    </p>
+    <p>
+      <%= form.label :image %>
+      <%= form.text_field :picture_path, class: "form-control not_empty"  %>
+    </p> 
+    <p>
+      <%= form.label t('.condition') %>
+      <%= form.select :condition, [['Category', 'category'], ['First_time', 'first_time'], ['Level', 'level']], {class: "form-select"}  %>
+    </p>
+    <p>
+      <%= form.label t('.value') %>
+      <%= form.text_field :value, class: "form-control not_empty" %>
+    </p>
+          <%= form.label t('.activated') %>
+      <%= form.select :activated, [['activated', true], ['diactivated', false]], {class: "form-select"}  %>
+    <br>
+    <div class="actions">
+      <%= form.submit t('.create'), class: "btn btn-light" %>
+    </div>
+  <% end %>
+</div>

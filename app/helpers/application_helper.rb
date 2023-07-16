@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def user_name
     if user_signed_in?
-      " #{t('menu.welcome')}, #{current_user.login} #{t('menu.guru')} "
+      link_to " #{t('menu.welcome')}, #{current_user.login} #{t('menu.guru')} ", profile_path(current_user)
     else
       link_to t('menu.register'), new_user_registration_path
     end
@@ -10,7 +10,7 @@ module ApplicationHelper
 
   def log_in_out
     if user_signed_in?
-      link_to(t('menu.logout'), destroy_user_session_path, method: :delete, class: "link-secondary")
+      link_to(t('menu.logout'), destroy_user_session_path, method: :delete, class: 'link-secondary')
     else
       link_to(t('menu.login'), new_user_session_path)
     end

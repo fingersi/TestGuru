@@ -6,4 +6,11 @@ module TestPassingHelper
       { color: 'red', text: t('test_passing.result.bad_result') }
     end
   end
+
+  def earned_badge(test_passing)
+    test_passing.badges.map do |badge|
+      "<td  vertical-align='middle'>#{content_tag :span, badge.title, class: 'badge-title'}</td>
+      <td>#{image_tag badge.picture_path, alt: badge.title, size: 150}</td>"
+    end.unshift("<h3> #{t('earned_badges')} </h3>").join(' ')
+  end
 end

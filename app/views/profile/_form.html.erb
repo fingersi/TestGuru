@@ -1,0 +1,25 @@
+
+<div class="row">
+  <%= form_with url: profile_path(current_user), model: @user do |form| %>
+    <p>
+      <%= form.label t('.login') %>
+      <%= form.text_field :login, class: "form-control not_empty" %>
+    </p>
+    <p>
+      <%= form.label t('.email') %>
+      <%= form.text_field :email, class: "form-control not_empty"  %>
+    </p> 
+    <p>
+      <%= form.label t('.first_name') %>
+      <%= form.text_field :first_name, class: "form-control" %>
+    </p> 
+    <p>
+      <%= form.label t('.last_name') %>
+      <%= form.text_field :last_name, class: "form-control" %>
+    </p>
+    <br>
+    <div class="actions">
+      <%= form.submit t('.create'), class: "btn btn-light" %>
+    </div>
+  <% end %>
+</div>
