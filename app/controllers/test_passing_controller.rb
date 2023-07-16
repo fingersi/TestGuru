@@ -12,7 +12,8 @@ class TestPassingController < ApplicationController
   def update
     @test_passing.accept!(test_params)
     if @test_passing.completed?
-      issue_badge if successfull?
+      @test_passing.tag_successfull
+      @test_passing.issue_badge if @test_passing.successfull
       redirect_to result_test_passing_path(@test_passing)
     else
       render :show

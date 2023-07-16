@@ -19,6 +19,11 @@ class TestPassing < ApplicationRecord
     BadgeFinder.new(self).find_badge
   end
 
+  def tag_successfull
+    self.successfull = true if successfull?
+    save!
+  end
+
   def mark
     (correct_questions.to_f / total_questions) * 100
   end
@@ -36,9 +41,7 @@ class TestPassing < ApplicationRecord
   end
 
   def successfull?
-    return false unless mark >= SUCCESS_LEVEL
-
-    self.successfull = true
+    mark >= SUCCESS_LEVEL
   end
 
   def accept!(answer_ids)

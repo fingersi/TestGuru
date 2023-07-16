@@ -38,11 +38,4 @@ class BadgeFinder
     user_ids = TestPassing.where({ test_id: target_ids, user_id: @tp.user.id, successfull: true }).distinct.sort.pluck(:test_id)
     target_ids == user_ids
   end
-
-  def find_testpassing(tests)
-    return false unless tests.present?
-
-    user_tests = TestPassing.where({ test_id: tests, user_id: @tp.user_id, successfull: true }).pluck(:test_id).uniq
-    tests.pluck(:id) == user_tests
-  end
 end
