@@ -45,3 +45,31 @@ td .same_line {
 .for_warning_message{
   margin: 0px;
 }
+
+.float_left{
+  display:table-cell;
+  width: 100px;
+}
+
+.float_right{
+  display:table-cell;
+  width: 100px;
+}
+
+.timer{
+  width: 200px;
+  margin: 5px;
+}
+
+.tablecell{
+  display:table-cell;
+}
+
+.minutes{
+  padding-right: 5px;
+}
+
+.seconds{
+  padding-right: 5px;
+}
+

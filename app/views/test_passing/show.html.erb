@@ -1,5 +1,17 @@
 <h1> <%= t('.title') %> <%= @test_passing.test.title %> </h1>
-<p> <%= t('test_passing.show.question_number', current: @test_passing.current_question_number, all: @test_passing.total_questions )%></p>
+
+<%= content_tag(:span, @test_passing.deadline ,id: 'time_left', data: { result: result_test_passing_path(@test_passing) }) %>
+
+<div class="timer" id="clockdiv">
+  <div class="float_left" >
+    <span class="minutes tablecell"></span>
+    <div class="smalltext tablecell"><%= t("minutes") %></div>
+  </div>
+  <div class="float_right">
+    <span class="seconds tablecell"></span>
+    <div class="smalltext tablecell"><%= t("seconds") %></div>
+  </div>
+</div>
 
 <div id="Progress">
   <%= content_tag(:div,"#{@test_passing.progress} %", id: 'Bar', data: {progress: @test_passing.progress}) %>

@@ -14,6 +14,7 @@ class Test < ApplicationRecord
 
   validates :title, presence: true, uniqueness: { scope: :level }
   validates :level, numericality: { other_than: 0 }
+  validates :time_limit, presence: true
   validate :published, :check_question
 
   def self.find_order_by_category(category)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_04_183017) do
+ActiveRecord::Schema.define(version: 2023_07_17_192158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2023_07_04_183017) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "author_id"
     t.boolean "published", default: false
+    t.integer "time_limit"
     t.index ["author_id"], name: "index_tests_on_author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["title", "level"], name: "TestsTitleLevel", unique: true
