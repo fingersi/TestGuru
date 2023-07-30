@@ -76,7 +76,7 @@ en:
       result: 'Ваш результат:'
       success: 'Test has been completed'
       bad_result: 'Test has not been completed'
-      mark: 'Ваша оценка:'
+      mark: 'Your mark is:'
 
     save:
       gist_saved: 'Question has been saved: '

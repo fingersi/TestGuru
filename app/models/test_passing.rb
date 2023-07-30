@@ -57,6 +57,10 @@ class TestPassing < ApplicationRecord
     created_at + self.test.time_limit.minutes
   end
 
+  def time_left?
+    minutes_left.negative?
+  end
+
   private
 
   def before_save_set_first_question

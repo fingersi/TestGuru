@@ -60,6 +60,6 @@ class TestPassingController < ApplicationController
   end
 
   def check_time_limit
-    redirect_to result_test_passing_path(@test_passing) if @test_passing.minutes_left < 0
+    redirect_to result_test_passing_path(@test_passing) if @test_passing.time_left?
   end
 end
