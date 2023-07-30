@@ -46,8 +46,19 @@ class TestPassing < ApplicationRecord
 
   def accept!(answer_ids)
     self.correct_questions += 1 if check_answers?(answer_ids)
-
     save!
+  end
+
+  def minutes_left
+    created_at + self.test.time_limit.minutes - Time.now
+  end
+
+  def deadline
+    created_at + self.test.time_limit.minutes
+  end
+
+  def time_left?
+    minutes_left.negative?
   end
 
   private
@@ -61,10 +72,12 @@ class TestPassing < ApplicationRecord
   end
 
   def correct_answers
-    current_question.answers.correct_answers
+    current_question.answers.correct_answers if current_question.present?
   end
 
   def before_update_next_question
-    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first unless successfull
+    return if completed?
+
+    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first
   end
 end

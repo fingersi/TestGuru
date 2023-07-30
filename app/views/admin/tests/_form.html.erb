@@ -13,6 +13,10 @@
       <%= form.text_field :level, class: "form-control not_empty"  %>
     </p>
     <p>
+      <%= form.label :time_limit %>
+      <%= form.text_field :time_limit, class: "form-control not_empty"   %>
+    </p>
+    <p>
       <%= form.label :published %>
       <%= form.select :published, [['Published', true], ['Unpublished', false]], {class: "form-select"}  %>
     </p>

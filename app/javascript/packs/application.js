@@ -20,6 +20,7 @@ import './check_password.js'
 import './progress_bar.js'
 import './validate_form.js'
 import './form_short.js'
+import './timer.js'
 import '../stylesheets/application.scss'
 import '../stylesheets/style.scss'
 

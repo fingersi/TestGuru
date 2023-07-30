@@ -3,4 +3,4 @@
 <% test_result = result_final_text(@test_passing) %>
 <p><font size='6' color= <%= test_result[:color]%> face='serif'><%= test_result[:text] %></font></p>
 <p><font size='6' color= <%= test_result[:color]%> face='serif'> <%= t('.mark') %> <%= @test_passing.mark %></font></p>
-<p> <%= earned_badge(@test_passing).html_safe %><p>
+<p> <%= earned_badge(@test_passing) %><p>

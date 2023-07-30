@@ -43,6 +43,8 @@ en:
   test_not_destroyed: 'Test has not been deleted. Ask support'
   test_was_not_found: 'Test was not found'
   earned_badges: "You earned badges."
+  minutes: "minutes"
+  seconds: "seconds"
 
   menu:
     main: 'TestGuru'
@@ -74,7 +76,7 @@ en:
       result: 'Ваш результат:'
       success: 'Test has been completed'
       bad_result: 'Test has not been completed'
-      mark: 'Ваша оценка:'
+      mark: 'Your mark is:'
 
     save:
       gist_saved: 'Question has been saved: '

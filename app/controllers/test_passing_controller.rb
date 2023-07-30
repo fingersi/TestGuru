@@ -1,5 +1,6 @@
 class TestPassingController < ApplicationController
   before_action :find_test_passing, only: %i[show update result save]
+  before_action :check_time_limit, only: %i[show update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_test_passing_not_found
 
@@ -56,5 +57,9 @@ class TestPassingController < ApplicationController
 
   def test_params
     params.require(:answer_ids)
+  end
+
+  def check_time_limit
+    redirect_to result_test_passing_path(@test_passing) if @test_passing.time_left?
   end
 end

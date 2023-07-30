@@ -65,6 +65,8 @@ ru:
   test_not_destroyed: 'Не удалось удалить тест.Обратесь в поддержку.'
   test_was_not_found: 'Тест не был найден.'
   earned_badges: "Вы получили Байджи."
+  minutes: "минуты"
+  seconds: "секунды"
 
   devise:
     confirmation:
